@@ -1,0 +1,10 @@
+---
+import { css } from '@styles/css';
+import { vstack } from '@styles/patterns';
+---
+
+<div class={vstack({ alignItems: 'center', bg: 'background' })}>
+  <div class={css({ width: '100vw', px: '6', maxWidth: '448px' })}>
+    <slot />
+  </div>
+</div>
