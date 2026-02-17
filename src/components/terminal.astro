@@ -1,0 +1,97 @@
+---
+import { css } from '@styles/css';
+import { hstack, vstack } from '@styles/patterns';
+---
+
+<div
+  class={vstack({
+    overflow: 'hidden',
+    borderColor: '$border',
+    borderWidth: '1px',
+    borderRadius: '$lg',
+    gap: 0,
+    fontFamily: '$mono',
+  })}
+>
+  <div
+    class={hstack({
+      width: '$full',
+      gap: '$4',
+      alignItems: 'center',
+      px: '$4',
+      py: '$3',
+      bgColor: 'oklch(from {$colors.neutral.950} 0.18 c h)',
+    })}
+  >
+    <div
+      class={hstack({
+        gap: '$1.5',
+      })}
+    >
+      <span
+        class={css({
+          boxSize: '$3',
+          borderRadius: '$full',
+          bgColor: '{$colors.red.500/70}',
+        })}></span>
+      <span
+        class={css({
+          boxSize: '$3',
+          borderRadius: '$full',
+          bgColor: '{$colors.amber.500/70}',
+        })}></span>
+      <span
+        class={css({
+          boxSize: '$3',
+          borderRadius: '$full',
+          bgColor: '{$colors.green.500/70}',
+        })}></span>
+    </div>
+    <p class={css({ fontSize: '$sm', color: '$zinc.500', lineHeight: '1' })}>ZSH - 80x24</p>
+  </div>
+
+  <div
+    class={vstack({
+      padding: '$6',
+      bgColor: '$neutral.900',
+      width: '$full',
+      alignItems: 'start',
+      fontSize: '$sm',
+      gap: '$3',
+    })}
+  >
+    <p>
+      <span class={css({ color: '$primary' })}>➜</span> whoami
+    </p>
+    <p class={css({ color: '$muted' })}>Ronald Ružička. Software Engineer based in the cloud.</p>
+    <p>
+      <span class={css({ color: '$primary' })}>➜</span> status
+    </p>
+    <p
+      class={css({
+        position: 'relative',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '$2',
+        color: '$primary',
+        _before: {
+          content: '""',
+          width: '0.8em',
+          height: '0.8em',
+          borderRadius: '$full',
+          bgColor: '$primary',
+          animation: 'pulse 2s infinite',
+        },
+      })}
+    >
+      Available for new projects
+    </p>
+    <p>
+      <span class={css({ color: '$primary' })}>➜</span> cat intro.txt
+    </p>
+    <p class={css({ color: '$muted' })}>
+      Hello World. I build high-performance web applications with a focus on minimalist design and
+      scalable architecture.
+    </p>
+  </div>
+</div>

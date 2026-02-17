@@ -10,6 +10,14 @@ export default defineConfig({
   // Files to exclude
   exclude: [],
 
+  hooks: {
+    'tokens:created': ({ configure }) => {
+      configure({
+        formatTokenName: (path) => '$' + path.join('.'),
+      });
+    },
+  },
+
   // Useful for theme customization
   theme: {
     extend: {
@@ -17,19 +25,7 @@ export default defineConfig({
         colors: {
           emerald: { value: '#00bd94' },
 
-          white: { value: '#fafafaff' },
-
-          neutral: {
-            100: { value: '#f6f7f8' },
-            200: { value: '#e2e8f0' },
-            300: { value: '#d1d5db' },
-            400: { value: '#9ca3af' },
-            500: { value: '#6b7280' },
-            600: { value: '#4b5563' },
-            700: { value: '#222224' },
-            800: { value: '#161618' },
-            900: { value: '#0a0a0c' },
-          },
+          white: { value: '{colors.neutral.50}' },
 
           // terminal: {
           //   bg: { value: '#1e1e1e' },
@@ -42,8 +38,8 @@ export default defineConfig({
           // },
         },
         fonts: {
-          display: { value: "'Inter', sans-serif" },
-          mono: { value: "'Space Grotesk', monospace" },
+          display: { value: "'Space Grotesk', sans-serif" },
+          mono: { value: "'Fira Code', monospace" },
         },
         radii: {
           full: { value: '100vw' },
@@ -55,13 +51,13 @@ export default defineConfig({
             value: { base: '{colors.emerald}', _dark: '{colors.emerald}' },
           },
           background: {
-            value: { base: '{colors.neutral.100}', _dark: '{colors.neutral.900}' },
+            value: { base: '{colors.neutral.100}', _dark: '{colors.neutral.950}' },
           },
           foreground: {
-            value: { base: '{colors.white}', _dark: '{colors.neutral.800}' },
+            value: { base: '{colors.white}', _dark: '{colors.zinc.800}' },
           },
           border: {
-            value: { base: '{colors.neutral.200}', _dark: '{colors.neutral.700}' },
+            value: { base: '{colors.neutral.200}', _dark: '{colors.zinc.700}' },
           },
           body: {
             value: { base: '{colors.neutral.900}', _dark: '{colors.neutral.100}' },
@@ -95,15 +91,15 @@ export default defineConfig({
 
   globalCss: {
     'html, body': {
-      bg: 'background',
-      color: 'body',
-      fontFamily: 'display',
+      bgColor: '$background',
+      color: '$body',
+      fontFamily: '$display',
       margin: 0,
       minHeight: '100dvh',
-      transition: 'background-color 0.2s, color 0.2s',
+      transition: 'background-color {$durations.slower} cubic-bezier(0.9, 0, 0.1, 1)',
     },
     '::selection': {
-      bg: 'primary/30',
+      bgColor: '{$colors.primary}/30',
     },
   },
 

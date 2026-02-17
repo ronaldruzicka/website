@@ -1,0 +1,25 @@
+---
+import { hstack } from '@styles/patterns';
+import ThemeToggle from './theme-toggle.astro';
+import { css } from '@styles/css';
+---
+
+<header class={hstack({ py: '$4', justifyContent: 'space-between' })}>
+  <span
+    class={css({
+      fontFamily: '$mono',
+      fontWeight: '$bold',
+    })}
+    >rr<span
+      class={css({
+        color: '$primary',
+        fontSize: '$xl',
+        animationName: 'pulse',
+        animationDuration: '3s',
+        animationIterationCount: 'infinite',
+        animationTimingFunction: 'ease-in-out',
+      })}>.</span
+    >dev</span
+  >
+  <ThemeToggle />
+</header>

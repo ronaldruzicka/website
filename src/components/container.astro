@@ -1,10 +1,9 @@
 ---
 import { css } from '@styles/css';
-import { vstack } from '@styles/patterns';
+import Header from './header.astro';
 ---
 
-<div class={vstack({ alignItems: 'center', bg: 'background' })}>
-  <div class={css({ width: '100vw', px: '6', maxWidth: '448px' })}>
-    <slot />
-  </div>
+<div class={css({ width: '100vw', px: '$6', maxWidth: '500px' })}>
+  <Header />
+  <slot />
 </div>
