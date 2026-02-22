@@ -26,16 +26,6 @@ export default defineConfig({
           emerald: { value: '#00bd94' },
 
           white: { value: '{colors.neutral.50}' },
-
-          // terminal: {
-          //   bg: { value: '#1e1e1e' },
-          //   header: { value: '#333333' },
-          //   green: { value: '#c3e88d' },
-          //   orange: { value: '#f78c6c' },
-          //   red: { value: '#ff5f56' },
-          //   yellow: { value: '#ffbd2e' },
-          //   go: { value: '#27c93f' },
-          // },
         },
         fonts: {
           display: { value: "'Space Grotesk', sans-serif" },
@@ -51,7 +41,7 @@ export default defineConfig({
             value: { base: '{colors.emerald}', _dark: '{colors.emerald}' },
           },
           background: {
-            value: { base: '{colors.neutral.100}', _dark: '{colors.neutral.950}' },
+            value: { base: '{colors.neutral.50}', _dark: '{colors.neutral.950}' },
           },
           foreground: {
             value: { base: '{colors.white}', _dark: '{colors.zinc.800}' },
@@ -65,18 +55,20 @@ export default defineConfig({
           muted: {
             value: { base: '{colors.neutral.600}', _dark: '{colors.neutral.400}' },
           },
-        },
-      },
-      recipes: {
-        terminalCursor: {
-          className: 'terminal-cursor',
-          base: {
-            display: 'inline-block',
-            width: '8px',
-            height: '1.2em',
-            bg: 'primary',
-            ml: '1',
-            verticalAlign: 'middle',
+
+          terminal: {
+            header: {
+              value: {
+                base: 'oklch(from {colors.neutral.100} 0.95 c h)',
+                _dark: 'oklch(from {colors.neutral.950} 0.18 c h)',
+              },
+            },
+            bg: {
+              value: {
+                base: '{colors.neutral.100}',
+                _dark: '{colors.neutral.900}',
+              },
+            },
           },
         },
       },
@@ -84,6 +76,16 @@ export default defineConfig({
         pulse: {
           '0%, 100%': { opacity: 1 },
           '50%': { opacity: 0.5 },
+        },
+        'slide-in-top': {
+          from: {
+            opacity: 0,
+            translate: '0 -8px',
+          },
+          to: {
+            opacity: 1,
+            translate: '0',
+          },
         },
       },
     },

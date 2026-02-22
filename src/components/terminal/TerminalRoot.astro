@@ -1,0 +1,17 @@
+---
+import { vstack } from '@styles/patterns';
+---
+
+<div
+  class={vstack({
+    overflow: 'hidden',
+    borderColor: '$border',
+    borderWidth: '1px',
+    borderRadius: '$lg',
+    gap: 0,
+    fontFamily: '$mono',
+    width: '$full',
+  })}
+>
+  <slot />
+</div>
