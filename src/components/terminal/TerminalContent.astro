@@ -133,15 +133,8 @@ const cursorClass = css({
   }
 
   let activeController: AbortController | null = null;
-  let initialized = false;
 
   async function initTerminal() {
-    if (initialized) {
-      return;
-    }
-
-    initialized = true;
-
     if (activeController) {
       activeController.abort();
     }

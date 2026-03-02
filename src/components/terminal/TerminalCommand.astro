@@ -10,14 +10,14 @@ import { css, cx } from '@styles/css';
       gap: '$2',
       alignItems: 'center',
       opacity: 0,
-      transform: 'translateY(-4px)',
-      transitionProperty: 'opacity, transform',
-      transitionDuration: '$slow',
-      transitionTimingFunction: 'ease-out',
+      transition: 'opacity {$durations.slow} ease-out',
+
+      _motionReduce: {
+        transition: 'none',
+      },
 
       '&.is-visible': {
         opacity: 1,
-        transform: 'translateY(0)',
       },
     }),
   )}
