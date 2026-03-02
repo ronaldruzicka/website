@@ -21,7 +21,6 @@ const cursorClass = css({
     'terminal-container',
     vstack({
       padding: '$6',
-      bgColor: '$terminal.bg',
       width: '$full',
       alignItems: 'start',
       fontSize: '$sm',
@@ -133,7 +132,6 @@ const cursorClass = css({
   let initialized = false;
 
   function initTerminal() {
-    console.log('💬 ~ initialized:', initialized);
     // Skip if already initialized and not navigating
     if (initialized && !document.startViewTransition) {
       return;

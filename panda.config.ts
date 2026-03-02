@@ -34,6 +34,12 @@ export default defineConfig({
         radii: {
           full: { value: '100vw' },
         },
+        animations: {
+          theme: {
+            duration: { value: '{durations.slower}' },
+            easing: { value: 'cubic-bezier(0.9, 0, 0.1, 1)' },
+          },
+        },
       },
       semanticTokens: {
         colors: {
@@ -98,7 +104,7 @@ export default defineConfig({
       fontFamily: '$display',
       margin: 0,
       minHeight: '100dvh',
-      transition: 'background-color {$durations.slower} cubic-bezier(0.9, 0, 0.1, 1)',
+      transition: 'background-color {$animations.theme.duration} {$animations.theme.easing}',
     },
     '::selection': {
       bgColor: '{$colors.primary}/30',
