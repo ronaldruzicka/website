@@ -18,6 +18,10 @@ const { title = 'ZSH - 80x24' } = Astro.props;
     py: '$3',
     bgColor: '$terminal.header',
     transition: 'background-color {$animations.theme.duration} {$animations.theme.easing}',
+
+    _motionReduce: {
+      transition: 'none',
+    },
   })}
 >
   <div

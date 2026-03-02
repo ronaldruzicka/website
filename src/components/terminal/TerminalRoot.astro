@@ -16,6 +16,10 @@ import { vstack } from '@styles/patterns';
     transitionProperty: 'background-color, border-color',
     transitionDuration: '{$animations.theme.duration}',
     transitionTimingFunction: '{$animations.theme.easing}',
+
+    _motionReduce: {
+      transition: 'none',
+    },
   })}
 >
   <slot />

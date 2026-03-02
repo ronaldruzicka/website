@@ -5,18 +5,19 @@ export function delay(ms: number, signal: AbortSignal) {
       return;
     }
 
-    const id = setTimeout(resolve, ms);
+    let id: ReturnType<typeof setTimeout>;
 
     const onAbort = () => {
       clearTimeout(id);
+      signal.removeEventListener('abort', onAbort);
       reject(new DOMException('Aborted', 'AbortError'));
     };
 
     signal.addEventListener('abort', onAbort, { once: true });
 
-    // Clean up listener when timeout completes normally
-    setTimeout(() => {
+    id = setTimeout(() => {
       signal.removeEventListener('abort', onAbort);
+      resolve();
     }, ms);
   });
 }

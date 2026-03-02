@@ -105,6 +105,10 @@ export default defineConfig({
       margin: 0,
       minHeight: '100dvh',
       transition: 'background-color {$animations.theme.duration} {$animations.theme.easing}',
+
+      _motionReduce: {
+        transition: 'none',
+      },
     },
     '::selection': {
       bgColor: '{$colors.primary}/30',

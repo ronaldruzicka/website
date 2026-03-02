@@ -10,9 +10,13 @@ const cursorClass = css({
   marginLeft: '4px',
   verticalAlign: 'middle',
   animationName: 'pulse',
-  animationDuration: '1s',
-  animationTimingFunction: 'step-end',
+  animationDuration: '1.5s',
+  animationTimingFunction: 'ease-in-out',
   animationIterationCount: 'infinite',
+
+  _motionReduce: {
+    animationName: 'none',
+  },
 });
 ---
 
@@ -53,7 +57,7 @@ const cursorClass = css({
     for (const [index] of [...text].entries()) {
       element.textContent = text.slice(0, index + 1);
       element.appendChild(cursor);
-      await randomDelay(80, 160, signal);
+      await randomDelay({ min: 80, max: 160, signal });
     }
   }
 
@@ -131,9 +135,8 @@ const cursorClass = css({
   let activeController: AbortController | null = null;
   let initialized = false;
 
-  function initTerminal() {
-    // Skip if already initialized and not navigating
-    if (initialized && !document.startViewTransition) {
+  async function initTerminal() {
+    if (initialized) {
       return;
     }
 
@@ -155,10 +158,10 @@ const cursorClass = css({
     const lines = Array.from(container.children) as HTMLElement[];
     const cursor = Object.assign(document.createElement('span'), { className: cursorClass });
 
-    runAnimation(lines, cursor, activeController.signal);
+    await runAnimation(lines, cursor, activeController.signal);
   }
 
   document.addEventListener('astro:page-load', initTerminal);
 
-  initTerminal();
+  await initTerminal();
 </script>

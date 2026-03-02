@@ -8,18 +8,18 @@ import { css, cx } from '@styles/css';
     css({
       color: '$muted',
       opacity: 0,
-      transform: 'translateY(-4px)',
-      transitionProperty: 'opacity, transform',
-      transitionDuration: '$slow',
-      transitionTimingFunction: 'ease-out',
 
       '&.is-visible': {
-        opacity: 1,
-        transform: 'translateY(0)',
         animationName: 'slide-in-top',
         animationDuration: '$slow',
         animationTimingFunction: 'ease-out',
         animationFillMode: 'forwards',
+
+        _motionReduce: {
+          opacity: 1,
+          translate: '0',
+          animationName: 'none',
+        },
       },
     }),
   )}
