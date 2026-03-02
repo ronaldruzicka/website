@@ -154,7 +154,9 @@ const cursorClass = css({
     await runAnimation(lines, cursor, activeController.signal);
   }
 
-  document.addEventListener('astro:page-load', initTerminal);
-
-  await initTerminal();
+  try {
+    initTerminal();
+  } catch (error) {
+    console.error(error);
+  }
 </script>
