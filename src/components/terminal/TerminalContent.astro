@@ -1,0 +1,166 @@
+---
+import { css, cx } from '@styles/css';
+import { vstack } from '@styles/patterns';
+
+const cursorClass = css({
+  display: 'inline-block',
+  width: '8px',
+  height: '1.2em',
+  backgroundColor: '$primary',
+  marginLeft: '4px',
+  verticalAlign: 'middle',
+  animationName: 'pulse',
+  animationDuration: '1.5s',
+  animationTimingFunction: 'ease-in-out',
+  animationIterationCount: 'infinite',
+
+  _motionReduce: {
+    animationName: 'none',
+  },
+});
+---
+
+<div
+  aria-live="off"
+  class={cx(
+    'terminal-container',
+    vstack({
+      padding: '$6',
+      width: '$full',
+      alignItems: 'start',
+      fontSize: '$sm',
+      gap: '$3',
+    }),
+  )}
+  data-cursor={cursorClass}
+>
+  <slot />
+</div>
+
+<script>
+  import { delay } from '@utils/delay';
+  import { randomDelay } from '@utils/random-delay';
+
+  function getOriginalText(span: HTMLElement): string {
+    if (!span.dataset.originalText) {
+      span.dataset.originalText = span.textContent ?? '';
+    }
+
+    return span.dataset.originalText;
+  }
+
+  async function typeText(element: HTMLElement, cursor: HTMLElement, signal: AbortSignal) {
+    const text = getOriginalText(element);
+
+    element.textContent = '';
+    element.appendChild(cursor);
+
+    const chars = [...text];
+
+    for (const [index] of chars.entries()) {
+      element.textContent = chars.slice(0, index + 1).join('');
+      element.appendChild(cursor);
+
+      await randomDelay({ min: 80, max: 160, signal });
+    }
+  }
+
+  function resetLine(line: HTMLElement) {
+    line.classList.remove('is-visible');
+
+    if (!line.classList.contains('terminal-command')) {
+      return;
+    }
+
+    const contentSpan = line.querySelector<HTMLElement>('.terminal-content');
+
+    if (!contentSpan) {
+      return;
+    }
+
+    getOriginalText(contentSpan);
+    contentSpan.textContent = '';
+  }
+
+  async function animateLine(line: HTMLElement, cursor: HTMLElement, signal: AbortSignal) {
+    line.classList.add('is-visible');
+
+    if (line.classList.contains('terminal-command')) {
+      const contentSpan = line.querySelector<HTMLElement>('.terminal-content');
+
+      if (!contentSpan) {
+        return;
+      }
+
+      await typeText(contentSpan, cursor, signal);
+      await delay(500, signal);
+
+      cursor.remove();
+
+      return;
+    }
+
+    await delay(400, signal);
+  }
+
+  async function runAnimation(lines: HTMLElement[], cursor: HTMLElement, signal: AbortSignal) {
+    try {
+      while (!signal.aborted) {
+        lines.forEach((line) => resetLine(line));
+        cursor.remove();
+
+        for (const line of lines) {
+          await animateLine(line, cursor, signal);
+        }
+
+        const lastLine = lines.at(-1);
+
+        if (lastLine) {
+          const lastChild = lastLine.lastChild;
+
+          if (lastChild?.nodeType === Node.TEXT_NODE) {
+            lastChild.textContent = lastChild.textContent?.trimEnd() ?? '';
+          }
+
+          lastLine.appendChild(cursor);
+        }
+
+        await delay(5000, signal);
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        return;
+      }
+
+      throw error;
+    }
+  }
+
+  let activeController: AbortController | null = null;
+
+  async function initTerminal() {
+    if (activeController) {
+      activeController.abort();
+    }
+
+    activeController = new AbortController();
+
+    const container = document.querySelector<HTMLElement>('.terminal-container');
+
+    if (!container) {
+      return;
+    }
+
+    const cursorClass = container.dataset.cursor ?? '';
+    const lines = Array.from(container.children) as HTMLElement[];
+    const cursor = Object.assign(document.createElement('span'), { className: cursorClass });
+
+    await runAnimation(lines, cursor, activeController.signal);
+  }
+
+  try {
+    initTerminal();
+  } catch (error) {
+    console.error(error);
+  }
+</script>

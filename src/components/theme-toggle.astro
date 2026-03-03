@@ -32,6 +32,10 @@ const transitionTimingFunction = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
       backgroundColor: '{$colors.white}',
       translate: '{$spacing.1} -50%',
       transition: `translate {$durations.slower} ${transitionTimingFunction}`,
+
+      _motionReduce: {
+        transition: 'none',
+      },
     },
 
     '&:has(input:checked)': {
@@ -55,6 +59,10 @@ const transitionTimingFunction = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
       transitionDuration: '$slower',
       transitionTimingFunction,
 
+      _motionReduce: {
+        transition: 'none',
+      },
+
       'input:checked~&': { rotate: '0deg', translate: '0% 0%', opacity: 1 },
     })}
   />
@@ -69,6 +77,10 @@ const transitionTimingFunction = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
       transitionProperty,
       transitionDuration: '$slower',
       transitionTimingFunction,
+
+      _motionReduce: {
+        transition: 'none',
+      },
 
       'input:checked~&': { rotate: '180deg', translate: '50% 50%', opacity: 0 },
     })}

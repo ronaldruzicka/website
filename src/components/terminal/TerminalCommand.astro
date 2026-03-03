@@ -1,0 +1,29 @@
+---
+import { css, cx } from '@styles/css';
+---
+
+<div
+  class={cx(
+    'terminal-command',
+    css({
+      display: 'flex',
+      gap: '$2',
+      alignItems: 'center',
+      opacity: 0,
+      transition: 'opacity {$durations.slow} ease-out',
+
+      _motionReduce: {
+        transition: 'none',
+      },
+
+      '&.is-visible': {
+        opacity: 1,
+      },
+    }),
+  )}
+>
+  <span class={css({ color: '$primary' })}>➜</span>
+  <span class="terminal-content">
+    <slot />
+  </span>
+</div>

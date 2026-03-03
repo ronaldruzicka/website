@@ -1,0 +1,28 @@
+---
+import { css, cx } from '@styles/css';
+---
+
+<p
+  class={cx(
+    'terminal-output',
+    css({
+      color: '$muted',
+      opacity: 0,
+
+      '&.is-visible': {
+        animationName: 'slide-in-top',
+        animationDuration: '$slow',
+        animationTimingFunction: 'ease-out',
+        animationFillMode: 'forwards',
+
+        _motionReduce: {
+          opacity: 1,
+          translate: '0',
+          animationName: 'none',
+        },
+      },
+    }),
+  )}
+>
+  <slot />
+</p>
