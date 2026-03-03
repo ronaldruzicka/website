@@ -21,6 +21,7 @@ const cursorClass = css({
 ---
 
 <div
+  aria-live="off"
   class={cx(
     'terminal-container',
     vstack({
@@ -54,9 +55,12 @@ const cursorClass = css({
     element.textContent = '';
     element.appendChild(cursor);
 
-    for (const [index] of [...text].entries()) {
-      element.textContent = text.slice(0, index + 1);
+    const chars = [...text];
+
+    for (const [index] of chars.entries()) {
+      element.textContent = chars.slice(0, index + 1).join('');
       element.appendChild(cursor);
+
       await randomDelay({ min: 80, max: 160, signal });
     }
   }
