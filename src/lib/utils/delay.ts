@@ -7,16 +7,16 @@ export function delay(ms: number, signal: AbortSignal) {
 
     let id: ReturnType<typeof setTimeout>;
 
-    const onAbort = () => {
+    const on_abort = () => {
       clearTimeout(id);
-      signal.removeEventListener('abort', onAbort);
+      signal.removeEventListener('abort', on_abort);
       reject(new DOMException('Aborted', 'AbortError'));
     };
 
-    signal.addEventListener('abort', onAbort, { once: true });
+    signal.addEventListener('abort', on_abort, { once: true });
 
     id = setTimeout(() => {
-      signal.removeEventListener('abort', onAbort);
+      signal.removeEventListener('abort', on_abort);
       resolve();
     }, ms);
   });

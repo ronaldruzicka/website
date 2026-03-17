@@ -1,6 +1,8 @@
----
-import { css, cx } from '@styles/css';
----
+<script lang="ts">
+  import { css, cx } from 'styled-system/css';
+
+  let { children } = $props();
+</script>
 
 <p
   class={cx(
@@ -8,13 +10,11 @@ import { css, cx } from '@styles/css';
     css({
       color: '$muted',
       opacity: 0,
-
       '&.is-visible': {
         animationName: 'slide-in-top',
         animationDuration: '$slow',
         animationTimingFunction: 'ease-out',
         animationFillMode: 'forwards',
-
         _motionReduce: {
           opacity: 1,
           translate: '0',
@@ -24,5 +24,5 @@ import { css, cx } from '@styles/css';
     }),
   )}
 >
-  <slot />
+  {@render children?.()}
 </p>

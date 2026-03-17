@@ -6,7 +6,7 @@ type Params = {
   signal: AbortSignal;
 };
 
-export function randomDelay({ min, max, signal }: Params) {
+export function random_delay({ min, max, signal }: Params) {
   if (!Number.isFinite(min) || !Number.isFinite(max) || min < 0 || max < 0 || min > max) {
     throw new RangeError('min/max must be finite, non-negative, and min <= max');
   }

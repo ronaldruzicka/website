@@ -1,6 +1,8 @@
----
-import { css, cx } from '@styles/css';
----
+<script lang="ts">
+  import { css, cx } from 'styled-system/css';
+
+  let { children } = $props();
+</script>
 
 <div
   class={cx(
@@ -11,11 +13,9 @@ import { css, cx } from '@styles/css';
       alignItems: 'center',
       opacity: 0,
       transition: 'opacity {$durations.slow} ease-out',
-
       _motionReduce: {
         transition: 'none',
       },
-
       '&.is-visible': {
         opacity: 1,
       },
@@ -24,6 +24,6 @@ import { css, cx } from '@styles/css';
 >
   <span class={css({ color: '$primary' })}>➜</span>
   <span class="terminal-content">
-    <slot />
+    {@render children?.()}
   </span>
 </div>

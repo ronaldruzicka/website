@@ -1,16 +1,17 @@
----
-import { hstack } from '@styles/patterns';
-import ThemeToggle from './theme-toggle.astro';
-import { css } from '@styles/css';
----
+<script lang="ts">
+  import { hstack } from 'styled-system/patterns';
+  import { css } from 'styled-system/css';
+  import ThemeToggle from './ThemeToggle.svelte';
+</script>
 
-<header class={hstack({ py: '$4', justifyContent: 'space-between' })}>
+<header class={hstack({ py: '$4', justifyContent: 'space-between', width: '$full' })}>
   <span
     class={css({
       fontFamily: '$mono',
       fontWeight: '$bold',
     })}
-    >rr<span
+  >
+    rr<span
       class={css({
         color: '$primary',
         fontSize: '$xl',
@@ -18,11 +19,11 @@ import { css } from '@styles/css';
         animationDuration: '3s',
         animationIterationCount: 'infinite',
         animationTimingFunction: 'ease-in-out',
-
         _motionReduce: {
           animationName: 'none',
         },
-      })}>.</span
+      })}
+      >.</span
     >dev</span
   >
   <ThemeToggle />

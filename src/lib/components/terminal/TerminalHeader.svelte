@@ -1,13 +1,13 @@
----
-import { css } from '@styles/css';
-import { hstack } from '@styles/patterns';
+<script lang="ts">
+  import { css } from 'styled-system/css';
+  import { hstack } from 'styled-system/patterns';
 
-type Props = {
-  title?: string;
-};
+  type Props = {
+    title?: string;
+  };
 
-const { title = 'ZSH - 80x24' } = Astro.props;
----
+  let { title = 'ZSH - 80x24' }: Props = $props();
+</script>
 
 <div
   class={hstack({
@@ -18,7 +18,6 @@ const { title = 'ZSH - 80x24' } = Astro.props;
     py: '$3',
     bgColor: '$terminal.header',
     transition: 'background-color {$animations.theme.duration} {$animations.theme.easing}',
-
     _motionReduce: {
       transition: 'none',
     },

@@ -1,6 +1,8 @@
----
-import { vstack } from '@styles/patterns';
----
+<script lang="ts">
+  import { vstack } from 'styled-system/patterns';
+
+  let { children } = $props();
+</script>
 
 <div
   class={vstack({
@@ -12,15 +14,13 @@ import { vstack } from '@styles/patterns';
     gap: 0,
     fontFamily: '$mono',
     width: '$full',
-
     transitionProperty: 'background-color, border-color',
     transitionDuration: '{$animations.theme.duration}',
     transitionTimingFunction: '{$animations.theme.easing}',
-
     _motionReduce: {
       transition: 'none',
     },
   })}
 >
-  <slot />
+  {@render children?.()}
 </div>

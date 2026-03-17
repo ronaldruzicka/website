@@ -1,3 +1,4 @@
+import { buttonRecipe } from './src/lib/components/button/button.recipe';
 import { defineConfig } from '@pandacss/dev';
 
 export default defineConfig({
@@ -5,7 +6,7 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ['./src/**/*.{astro,ts,tsx}', './pages/**/*.{astro,ts,tsx}'],
+  include: ['./src/**/*.{svelte,ts,tsx}'],
 
   // Files to exclude
   exclude: [],
@@ -15,6 +16,11 @@ export default defineConfig({
       configure({
         formatTokenName: (path) => '$' + path.join('.'),
       });
+    },
+  },
+  staticCss: {
+    recipes: {
+      button: ['*'],
     },
   },
 
@@ -50,10 +56,10 @@ export default defineConfig({
             value: { base: '{colors.neutral.50}', _dark: '{colors.neutral.950}' },
           },
           foreground: {
-            value: { base: '{colors.white}', _dark: '{colors.zinc.800}' },
+            value: { base: '{colors.zinc.100}', _dark: '{colors.zinc.900}' },
           },
           border: {
-            value: { base: '{colors.neutral.200}', _dark: '{colors.zinc.700}' },
+            value: { base: '{colors.neutral.200}', _dark: '{colors.zinc.800}' },
           },
           body: {
             value: { base: '{colors.neutral.900}', _dark: '{colors.neutral.100}' },
@@ -93,6 +99,9 @@ export default defineConfig({
             translate: '0',
           },
         },
+      },
+      recipes: {
+        button: buttonRecipe,
       },
     },
   },
