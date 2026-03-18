@@ -6,6 +6,7 @@
   import { random_delay } from '$lib/utils/random-delay';
 
   let { children } = $props();
+  let container: HTMLElement | null = null;
 
   const cursor_class = css({
     display: 'inline-block',
@@ -30,11 +31,7 @@
     return span.dataset.originalText;
   }
 
-  async function type_text(
-    element: HTMLElement,
-    cursor: HTMLElement,
-    signal: AbortSignal
-  ) {
+  async function type_text(element: HTMLElement, cursor: HTMLElement, signal: AbortSignal) {
     const text = get_original_text(element);
     element.textContent = '';
     element.appendChild(cursor);
@@ -57,11 +54,7 @@
     content_span.textContent = '';
   }
 
-  async function animate_line(
-    line: HTMLElement,
-    cursor: HTMLElement,
-    signal: AbortSignal
-  ) {
+  async function animate_line(line: HTMLElement, cursor: HTMLElement, signal: AbortSignal) {
     line.classList.add('is-visible');
 
     if (line.classList.contains('terminal-command')) {
@@ -76,11 +69,7 @@
     await delay(400, signal);
   }
 
-  async function run_animation(
-    lines: HTMLElement[],
-    cursor: HTMLElement,
-    signal: AbortSignal
-  ) {
+  async function run_animation(lines: HTMLElement[], cursor: HTMLElement, signal: AbortSignal) {
     try {
       while (!signal.aborted) {
         lines.forEach((line) => reset_line(line));
@@ -118,7 +107,6 @@
       }
       active_controller = new AbortController();
 
-      const container = document.querySelector<HTMLElement>('.terminal-container');
       if (!container) return;
 
       const cursor_class_value = container.dataset.cursor ?? '';
@@ -131,11 +119,16 @@
     }
 
     init_terminal().catch(console.error);
+
+    return () => {
+      active_controller?.abort();
+    };
   });
 </script>
 
 <div
   aria-live="off"
+  bind:this={container}
   class={cx(
     'terminal-container',
     vstack({

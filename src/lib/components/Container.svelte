@@ -5,7 +5,7 @@
   let { children } = $props();
 </script>
 
-<div class={vstack({ width: '100vw', px: '$6', maxWidth: '500px', gap: '$10' })}>
+<div class={vstack({ width: '100%', px: '$6', maxWidth: '500px', mx: 'auto', gap: '$10' })}>
   <Header />
   {@render children?.()}
 </div>

@@ -8,9 +8,12 @@
   const transition_property = 'rotate, translate, opacity';
   const transition_timing_function = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
 
-  let is_dark = $state(false);
+  let is_dark = $state(
+    typeof document !== 'undefined' && document.documentElement.classList.contains('dark'),
+  );
 
   onMount(() => {
+    // Sync in case SSR state differs from client
     is_dark = document.documentElement.classList.contains('dark');
   });
 
@@ -62,6 +65,7 @@
     class={visuallyHidden()}
     type="checkbox"
     name="theme-toggle"
+    aria-label="Toggle dark mode"
     bind:checked={is_dark}
     onchange={handle_change}
   />
