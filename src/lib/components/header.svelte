@@ -1,7 +1,7 @@
 <script lang="ts">
   import { hstack } from 'styled-system/patterns';
   import { css } from 'styled-system/css';
-  import ThemeToggle from './ThemeToggle.svelte';
+  import ThemeToggle from './theme-toggle.svelte';
 </script>
 
 <header class={hstack({ py: '$4', justifyContent: 'space-between', width: '$full' })}>
@@ -22,8 +22,7 @@
         _motionReduce: {
           animationName: 'none',
         },
-      })}
-      >.</span
+      })}>.</span
     >dev</span
   >
   <ThemeToggle />

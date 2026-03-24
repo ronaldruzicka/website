@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Terminal } from './terminal/index.ts';
+  import { Terminal } from './terminal/index';
   import { css } from 'styled-system/css';
 </script>
 
@@ -8,6 +8,12 @@
   <Terminal.Content>
     <Terminal.Command>whoami</Terminal.Command>
     <Terminal.Output>Ronald Ružička. Software Engineer based in the cloud.</Terminal.Output>
+
+    <Terminal.Command>cat intro.txt</Terminal.Command>
+    <Terminal.Output
+      >Hello World. I build high-performance web applications with a focus on minimalist design and
+      scalable architecture.</Terminal.Output
+    >
 
     <Terminal.Command>status</Terminal.Command>
     <Terminal.Output>
@@ -29,15 +35,8 @@
               animationName: 'none',
             },
           },
-        })}
-        >Available for new projects</span
+        })}>Available for new projects</span
       >
     </Terminal.Output>
-
-    <Terminal.Command>cat intro.txt</Terminal.Command>
-    <Terminal.Output
-      >Hello World. I build high-performance web applications with a focus on minimalist design and
-      scalable architecture.</Terminal.Output
-    >
   </Terminal.Content>
 </Terminal.Root>

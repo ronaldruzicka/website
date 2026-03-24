@@ -1,7 +1,7 @@
 <script lang="ts">
   import { css } from 'styled-system/css';
   import { hstack, vstack } from 'styled-system/patterns';
-  import Button from './Button.svelte';
+  import Button from './button/button.svelte';
 </script>
 
 <section

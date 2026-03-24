@@ -1,13 +1,15 @@
-import TerminalRoot from './TerminalRoot.svelte';
-import TerminalHeader from './TerminalHeader.svelte';
-import TerminalContent from './TerminalContent.svelte';
-import TerminalCommand from './TerminalCommand.svelte';
-import TerminalOutput from './TerminalOutput.svelte';
+import TerminalCommand from './terminal-command.svelte';
+import TerminalContent from './terminal-content.svelte';
+import TerminalCursor from './terminal-cursor.svelte';
+import TerminalHeader from './terminal-header.svelte';
+import TerminalOutput from './terminal-output.svelte';
+import TerminalRoot from './terminal-root.svelte';
 
 export const Terminal = {
-  Root: TerminalRoot,
-  Header: TerminalHeader,
-  Content: TerminalContent,
   Command: TerminalCommand,
+  Content: TerminalContent,
+  Cursor: TerminalCursor,
+  Header: TerminalHeader,
   Output: TerminalOutput,
+  Root: TerminalRoot,
 };

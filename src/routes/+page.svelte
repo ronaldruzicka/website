@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Intro from '$lib/components/Intro.svelte';
-  import TerminalIntro from '$lib/components/TerminalIntro.svelte';
+  import Intro from '@components/intro.svelte';
+  import TerminalIntro from '@components/terminal-intro.svelte';
 </script>
 
 <Intro />

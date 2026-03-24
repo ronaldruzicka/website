@@ -1,6 +1,6 @@
 <script lang="ts">
   import { vstack } from 'styled-system/patterns';
-  import Header from './Header.svelte';
+  import Header from './header.svelte';
 
   let { children } = $props();
 </script>
