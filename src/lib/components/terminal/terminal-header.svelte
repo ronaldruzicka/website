@@ -1,13 +1,7 @@
----
-import { css } from '@styles/css';
-import { hstack } from '@styles/patterns';
-
-type Props = {
-  title?: string;
-};
-
-const { title = 'ZSH - 80x24' } = Astro.props;
----
+<script lang="ts">
+  import { css } from 'styled-system/css';
+  import { hstack } from 'styled-system/patterns';
+</script>
 
 <div
   class={hstack({
@@ -15,10 +9,9 @@ const { title = 'ZSH - 80x24' } = Astro.props;
     gap: '$4',
     alignItems: 'center',
     px: '$4',
-    py: '$3',
+    py: '$2.5',
     bgColor: '$terminal.header',
     transition: 'background-color {$animations.theme.duration} {$animations.theme.easing}',
-
     _motionReduce: {
       transition: 'none',
     },
@@ -34,19 +27,21 @@ const { title = 'ZSH - 80x24' } = Astro.props;
         boxSize: '$3',
         borderRadius: '$full',
         bgColor: '{$colors.red.500/70}',
-      })}></span>
+      })}
+    ></span>
     <span
       class={css({
         boxSize: '$3',
         borderRadius: '$full',
         bgColor: '{$colors.amber.500/70}',
-      })}></span>
+      })}
+    ></span>
     <span
       class={css({
         boxSize: '$3',
         borderRadius: '$full',
         bgColor: '{$colors.green.500/70}',
-      })}></span>
+      })}
+    ></span>
   </div>
-  <p class={css({ fontSize: '$sm', color: '$zinc.500', lineHeight: '1' })}>{title}</p>
 </div>

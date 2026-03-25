@@ -53,6 +53,7 @@ Order of context changes meaning (e.g. `should_update_component` vs `should_comp
 ### Structure
 
 - **At most 2–3 parameters**; if more, use a single options object.
+- **Only boolean parameters**; If the only parameter or parameters are booleans, use object for the parameters.
 - **One responsibility per function**; keep functions small.
 - **Extract predicates/callbacks** into named functions when it improves clarity or reuse (e.g. `get_id`, then `users.map(get_id)`).
 - Prefer **declarative/functional** style: use `map`, `filter`, `reduce`, `slice`, `concat` instead of mutating; avoid mutating with `push`, `pop`, `shift`, `unshift`, `splice` unless necessary.

@@ -1,18 +1,24 @@
 {
   "name": "personal-portfolio",
-  "type": "module",
   "version": "0.0.1",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "prepare": "panda codegen"
-  },
-  "dependencies": {
-    "astro": "^5.17.1"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "prepare": "svelte-kit sync && panda codegen"
   },
   "devDependencies": {
-    "@pandacss/dev": "^1.8.1"
+    "@pandacss/dev": "^1.9.1",
+    "@sveltejs/adapter-auto": "^7.0.1",
+    "@sveltejs/kit": "^2.55.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "svelte": "^5.55.0",
+    "svelte-check": "^4.4.5",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.2"
   }
 }

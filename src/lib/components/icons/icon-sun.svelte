@@ -1,3 +1,7 @@
+<script lang="ts">
+  let { class: className = '' } = $props();
+</script>
+
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -8,7 +12,7 @@
   stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class="lucide lucide-sun-icon lucide-sun"
+  class={className}
 >
   <circle cx="12" cy="12" r="4" />
   <path d="M12 2v2" />

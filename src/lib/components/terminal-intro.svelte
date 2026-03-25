@@ -1,7 +1,7 @@
----
-import Terminal from './terminal/index.ts';
-import { css } from '@styles/css';
----
+<script lang="ts">
+  import { Terminal } from './terminal/index';
+  import { css } from 'styled-system/css';
+</script>
 
 <Terminal.Root>
   <Terminal.Header />
@@ -9,9 +9,15 @@ import { css } from '@styles/css';
     <Terminal.Command>whoami</Terminal.Command>
     <Terminal.Output>Ronald Ružička. Software Engineer based in the cloud.</Terminal.Output>
 
-    <Terminal.Command>status</Terminal.Command>
+    <Terminal.Command>cat intro.txt</Terminal.Command>
     <Terminal.Output
-      ><span
+      >Hello World. I build high-performance web applications with a focus on minimalist design and
+      scalable architecture.</Terminal.Output
+    >
+
+    <Terminal.Command>status</Terminal.Command>
+    <Terminal.Output>
+      <span
         class={css({
           position: 'relative',
           display: 'inline-flex',
@@ -25,19 +31,12 @@ import { css } from '@styles/css';
             borderRadius: '$full',
             bgColor: '$primary',
             animation: 'pulse 2s infinite',
-
             _motionReduce: {
               animationName: 'none',
             },
           },
         })}>Available for new projects</span
-      ></Terminal.Output
-    >
-
-    <Terminal.Command>cat intro.txt</Terminal.Command>
-    <Terminal.Output
-      >Hello World. I build high-performance web applications with a focus on minimalist design and
-      scalable architecture.</Terminal.Output
-    >
+      >
+    </Terminal.Output>
   </Terminal.Content>
 </Terminal.Root>
