@@ -3,29 +3,34 @@
   import { css, cx } from 'styled-system/css';
   import { vstack } from 'styled-system/patterns';
   import { delay } from '$lib/utils/delay';
-  import { use_terminal_content } from './terminal';
+  import {
+    use_terminal_content,
+    type TerminalAnimationParams,
+    type TerminalPlayParams,
+  } from './terminal';
 
   let { children } = $props();
   const terminal = use_terminal_content();
+  let animation_state = $state<'pending' | 'enabled' | 'disabled'>('pending');
 
-  const reset_lines = () => {
+  const reset_lines = ({ animations_enabled }: TerminalAnimationParams) => {
     terminal.get_lines().forEach((line) => {
-      line.set_cursor_active(false);
-      line.reset();
+      line.set_cursor_active({ is_active: false, animations_enabled });
+      line.reset({ animations_enabled });
     });
   };
 
-  async function run_animation(signal: AbortSignal) {
+  async function run_animation({ signal, animations_enabled }: TerminalPlayParams) {
     try {
       while (!signal.aborted) {
         const lines = terminal.get_lines();
-        reset_lines();
+        reset_lines({ animations_enabled });
 
         for (const line of lines) {
-          await line.play(signal);
+          await line.play({ signal, animations_enabled });
         }
 
-        lines.at(-1)?.set_cursor_active(true);
+        lines.at(-1)?.set_cursor_active({ is_active: true, animations_enabled });
 
         await delay(5000, signal);
       }
@@ -38,9 +43,22 @@
   }
 
   onMount(() => {
+    const animations_enabled = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!animations_enabled) {
+      animation_state = 'disabled';
+      return;
+    }
+
+    animation_state = 'enabled';
+    reset_lines({ animations_enabled: true });
+
     const active_controller = new AbortController();
 
-    run_animation(active_controller.signal).catch(console.error);
+    run_animation({
+      signal: active_controller.signal,
+      animations_enabled: true,
+    }).catch(console.error);
 
     return () => {
       active_controller.abort();
@@ -50,9 +68,10 @@
 
 <div
   aria-live="off"
+  data-terminal-animation-state={animation_state}
   class={cx(
     vstack({
-      padding: '$6',
+      padding: '$4',
       width: '$full',
       alignItems: 'start',
       fontSize: '$sm',
@@ -62,3 +81,11 @@
 >
   {@render children?.()}
 </div>
+
+<style>
+  :global(html.js.motion-safe [data-terminal-animation-state='pending'] [data-terminal-line]) {
+    opacity: 0 !important;
+    animation: none !important;
+    transition: none !important;
+  }
+</style>

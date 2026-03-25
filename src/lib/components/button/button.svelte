@@ -38,14 +38,15 @@
   }: Props = $props();
 
   const class_list = $derived(cx(button({ variant }), className));
+  const safeRel = $derived(href && target === '_blank' && !rel ? 'noopener noreferrer' : rel);
 </script>
 
-{#if href}
-  <a {href} class={class_list} {rel} {target}>
+{#if href !== undefined}
+  <a {href} class={class_list} rel={safeRel} {target}>
     {@render children?.()}
   </a>
 {:else}
-  <button {type} class={class_list} onclick={onclick}>
+  <button {type} class={class_list} {onclick}>
     {@render children?.()}
   </button>
 {/if}

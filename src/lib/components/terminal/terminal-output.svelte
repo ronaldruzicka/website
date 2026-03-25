@@ -2,25 +2,43 @@
   import { onDestroy } from 'svelte';
   import { css, cx } from 'styled-system/css';
   import { delay } from '$lib/utils/delay';
-  import { use_terminal_line } from './terminal';
+  import {
+    use_terminal_line,
+    type TerminalAnimationParams,
+    type TerminalCursorParams,
+    type TerminalPlayParams,
+  } from './terminal';
   import TerminalCursor from './terminal-cursor.svelte';
 
   let { children } = $props();
 
-  let is_visible = $state(false);
+  let is_visible = $state(true);
   let is_cursor_active = $state(false);
 
-  const reset = () => {
-    is_visible = false;
+  const reset = ({ animations_enabled: next_animations_enabled }: TerminalAnimationParams) => {
+    is_visible = !next_animations_enabled;
     is_cursor_active = false;
   };
 
-  const set_cursor_active = (value: boolean) => {
-    is_cursor_active = value;
+  const set_cursor_active = ({
+    is_active,
+    animations_enabled: next_animations_enabled,
+  }: TerminalCursorParams) => {
+    is_visible = true;
+    is_cursor_active = next_animations_enabled ? is_active : false;
   };
 
-  const play = async (signal: AbortSignal) => {
+  const play = async ({
+    signal,
+    animations_enabled: next_animations_enabled,
+  }: TerminalPlayParams) => {
     is_visible = true;
+    is_cursor_active = false;
+
+    if (!next_animations_enabled) {
+      return;
+    }
+
     await delay(400, signal);
   };
 
@@ -34,6 +52,7 @@
 </script>
 
 <p
+  data-terminal-line
   class={cx(
     css({
       color: '$muted',

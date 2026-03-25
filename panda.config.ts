@@ -71,8 +71,8 @@ export default defineConfig({
           terminal: {
             header: {
               value: {
-                base: 'oklch(from {colors.neutral.100} 0.95 c h)',
-                _dark: 'oklch(from {colors.neutral.950} 0.18 c h)',
+                base: 'oklch(from {colors.neutral.100} 0.93 c h)',
+                _dark: 'oklch(from {colors.neutral.950} 0.12 c h)',
               },
             },
             bg: {

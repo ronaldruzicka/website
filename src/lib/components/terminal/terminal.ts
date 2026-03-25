@@ -1,9 +1,21 @@
 import { createContext } from 'svelte';
 
+export type TerminalAnimationParams = {
+  animations_enabled: boolean;
+};
+
+export type TerminalPlayParams = TerminalAnimationParams & {
+  signal: AbortSignal;
+};
+
+export type TerminalCursorParams = TerminalAnimationParams & {
+  is_active: boolean;
+};
+
 export type TerminalLine = {
-  reset: () => void;
-  play: (signal: AbortSignal) => Promise<void>;
-  set_cursor_active: (value: boolean) => void;
+  reset: (params: TerminalAnimationParams) => void;
+  play: (params: TerminalPlayParams) => Promise<void>;
+  set_cursor_active: (params: TerminalCursorParams) => void;
 };
 
 type TerminalContext = {

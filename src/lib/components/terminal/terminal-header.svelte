@@ -9,7 +9,7 @@
     gap: '$4',
     alignItems: 'center',
     px: '$4',
-    py: '$3',
+    py: '$2.5',
     bgColor: '$terminal.header',
     transition: 'background-color {$animations.theme.duration} {$animations.theme.easing}',
     _motionReduce: {

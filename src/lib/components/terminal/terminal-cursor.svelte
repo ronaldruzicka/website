@@ -9,7 +9,7 @@
     ml: '-$1',
     mt: '-$0.5',
     verticalAlign: 'middle',
-    animation: 'pulse 1.3s infinite ease-in-out',
+    animation: 'pulse 1.5s infinite ease-in-out',
 
     _motionReduce: {
       animationName: 'none',

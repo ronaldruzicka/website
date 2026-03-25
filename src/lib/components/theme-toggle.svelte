@@ -4,9 +4,11 @@
   import { hstack, visuallyHidden } from 'styled-system/patterns';
   import IconMoon from './icons/icon-moon.svelte';
   import IconSun from './icons/icon-sun.svelte';
+  import type { ChangeEventHandler } from 'svelte/elements';
 
   const transition_property = 'rotate, translate, opacity';
   const transition_timing_function = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+  const THEME_STORAGE_KEY = 'theme';
 
   let is_dark = $state(
     typeof document !== 'undefined' && document.documentElement.classList.contains('dark'),
@@ -17,9 +19,13 @@
     is_dark = document.documentElement.classList.contains('dark');
   });
 
-  function handle_change() {
-    document.documentElement.classList.toggle('dark', is_dark);
-  }
+  const handle_change: ChangeEventHandler<HTMLInputElement> = (event) => {
+    const checked = event.currentTarget.checked;
+
+    is_dark = checked;
+    document.documentElement.classList.toggle('dark', checked);
+    localStorage.setItem(THEME_STORAGE_KEY, checked ? 'dark' : 'light');
+  };
 </script>
 
 <label
@@ -34,6 +40,11 @@
     borderRadius: '$full',
     color: '$background',
     overflow: 'hidden',
+
+    '&:has(input:focus-visible)': {
+      outline: '2px solid {$colors.primary}',
+      outlineOffset: '2px',
+    },
 
     _after: {
       content: '""',
