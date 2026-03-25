@@ -24,7 +24,15 @@
 
     is_dark = checked;
     document.documentElement.classList.toggle('dark', checked);
-    localStorage.setItem(THEME_STORAGE_KEY, checked ? 'dark' : 'light');
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, checked ? 'dark' : 'light');
+    } catch (error) {
+      if (error instanceof DOMException && error.name === 'QuotaExceededError') {
+        return;
+      }
+
+      throw error;
+    }
   };
 </script>
 
