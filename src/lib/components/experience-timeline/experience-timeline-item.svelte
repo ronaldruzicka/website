@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { css } from 'styled-system/css';
   import { vstack } from 'styled-system/patterns';
   import ExperienceTimelineContent from './experience-timeline-content.svelte';
   import ExperienceTimelineDate from './experience-timeline-date.svelte';
@@ -6,7 +7,6 @@
   import ExperienceTimelineStack from './experience-timeline-stack.svelte';
   import ExperienceTimelineTitle from './experience-timeline-title.svelte';
   import type { ExperienceEntry } from './experience-timeline.types';
-  import { css, cx } from 'styled-system/css';
 
   const { entry }: { entry: ExperienceEntry } = $props();
 </script>
@@ -33,7 +33,7 @@
     <ExperienceTimelineDate date_range={entry.date_range} />
     <ExperienceTimelineTitle title={entry.job_title} company={entry.company} />
     <ExperienceTimelineContent highlights={entry.highlights} />
-    {#if entry.stack?.length}
+    {#if entry.stack.length}
       <ExperienceTimelineStack stack={entry.stack} />
     {/if}
   </div>

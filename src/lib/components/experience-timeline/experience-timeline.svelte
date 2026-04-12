@@ -16,7 +16,13 @@
       width: '$full',
     })}
   >
-    <HugeiconsIcon icon={WorkHistoryIcon} size={24} color="currentColor" strokeWidth={1.5} />
+    <HugeiconsIcon
+      aria-hidden="true"
+      color="currentColor"
+      icon={WorkHistoryIcon}
+      size={24}
+      strokeWidth={1.5}
+    />
     <Heading tag="h2">Work Experience</Heading>
   </header>
 

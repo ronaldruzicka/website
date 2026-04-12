@@ -1,6 +1,5 @@
 <script lang="ts">
-  import { css, cva } from 'styled-system/css';
-  import type { ExperienceEntry } from './experience-timeline.types';
+  import { css } from 'styled-system/css';
 </script>
 
 <div
