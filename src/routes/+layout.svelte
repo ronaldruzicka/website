@@ -12,12 +12,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&family=Space+Grotesk:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&family=Inter:wght@400;700;900&display=swap"
     rel="stylesheet"
   />
 </svelte:head>
 
-<div class={vstack({ alignItems: 'center', height: '$full' })}>
+<div class={vstack({ alignItems: 'center', height: '$full', pb: '$10' })}>
   <Container>
     {@render children?.()}
   </Container>

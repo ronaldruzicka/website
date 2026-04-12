@@ -34,7 +34,7 @@ export default defineConfig({
           white: { value: '{colors.neutral.50}' },
         },
         fonts: {
-          display: { value: "'Space Grotesk', sans-serif" },
+          display: { value: 'Inter, sans-serif' },
           mono: { value: "'Fira Code', monospace" },
         },
         radii: {
@@ -107,12 +107,15 @@ export default defineConfig({
   },
 
   globalCss: {
+    html: {
+      scrollbarGutter: 'stable',
+    },
     'html, body': {
       bgColor: '$background',
       color: '$body',
       fontFamily: '$display',
       margin: 0,
-      minHeight: '100dvh',
+      minBlockSize: '100svh',
       transition: 'background-color {$animations.theme.duration} {$animations.theme.easing}',
 
       _motionReduce: {
