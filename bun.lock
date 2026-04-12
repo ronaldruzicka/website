@@ -4,6 +4,10 @@
   "workspaces": {
     "": {
       "name": "personal-portfolio",
+      "dependencies": {
+        "@hugeicons/core-free-icons": "^4.0.0",
+        "@hugeicons/svelte": "^1.1.2",
+      },
       "devDependencies": {
         "@pandacss/dev": "^1.9.1",
         "@sveltejs/adapter-auto": "^7.0.1",
@@ -92,6 +96,10 @@
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.12", "", { "os": "win32", "cpu": "x64" }, "sha512-alJC0uCZpTFrSL0CCDjcgleBXPnCrEAhTBILpeAp7M/OFgoqtAetfBzX0xM00MUsVVPpVjlPuMbREqnZCXaTnA=="],
 
     "@hono/node-server": ["@hono/node-server@1.19.9", "", { "peerDependencies": { "hono": "^4" } }, "sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw=="],
+
+    "@hugeicons/core-free-icons": ["@hugeicons/core-free-icons@4.0.0", "", {}, "sha512-bzfbKumv3ke3ajbe2MyXi9i0I/cdsZ6n/mO9EfIPNSL++pHLqs7nSGRIVUtjF4xrrEyVkfhxssv4Jek8DPA6gA=="],
+
+    "@hugeicons/svelte": ["@hugeicons/svelte@1.1.2", "", { "peerDependencies": { "svelte": "^5.0.0" } }, "sha512-yYmLFE+tq/mJmmjNaGxnaA99+H9yOzZmWJOMxKd9g9EJ8FCTCG8jpTgzVSv5bpuXDjQZFIGJz+Z/syiXhrS0mA=="],
 
     "@isaacs/balanced-match": ["@isaacs/balanced-match@4.0.1", "", {}, "sha512-yzMTt9lEb8Gv7zRioUilSglI0c0smZ9k5D65677DLWLtWJaXIS3CqcGyUFByYKlnUj6TkjLVs54fBl6+TiGQDQ=="],
 

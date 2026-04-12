@@ -47,7 +47,7 @@
     backgroundColor: 'oklch(from {$colors.yellow.500} 76% c 50)',
     borderRadius: '$full',
     color: '$background',
-    overflow: 'hidden',
+    overflow: 'clip',
 
     '&:has(input:focus-visible)': {
       outline: '2px solid {$colors.primary}',

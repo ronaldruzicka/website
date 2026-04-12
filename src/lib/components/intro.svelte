@@ -2,10 +2,10 @@
   import { css } from 'styled-system/css';
   import { hstack, vstack } from 'styled-system/patterns';
   import Button from './button/button.svelte';
+  import Heading from './heading.svelte';
 </script>
 
 <section
-  aria-labelledby="profile-heading"
   class={vstack({
     width: '$full',
     alignItems: 'center',
@@ -32,7 +32,7 @@
         height: '100%',
         bgColor: '$primary',
         position: 'relative',
-        overflow: 'hidden',
+        overflow: 'clip',
         border: '2px solid {$colors.primary}',
         borderRadius: '34% 66% 30% 70% / 70% 39% 61% 30% ',
       })}
@@ -53,38 +53,25 @@
   <div
     class={vstack({
       alignItems: 'center',
-      gap: '$1',
+      gap: '$5',
     })}
   >
-    <h1
-      id="profile-heading"
-      class={css({
-        margin: 0,
-        color: '$body',
-        fontFamily: '$display',
-        fontWeight: '$bold',
-        fontSize: '$3xl',
-        lineHeight: '1.2',
-        textAlign: 'center',
-      })}
-    >
-      Ronald Ružička
-    </h1>
-
-    <p
-      class={css({
-        margin: 0,
-        paddingBottom: '$6',
-        color: '$primary',
-        fontFamily: '$display',
-        fontWeight: '$medium',
-        fontSize: '$lg',
-        lineHeight: '1.56',
-        textAlign: 'center',
-      })}
-    >
-      Senior Frontend Developer
-    </p>
+    <div class={vstack({ gap: '$1' })}>
+      <Heading tag="h1">Ronald Ružička</Heading>
+      <p
+        class={css({
+          margin: 0,
+          color: '$primary',
+          fontFamily: '$display',
+          fontWeight: '$medium',
+          fontSize: '$lg',
+          lineHeight: '1.56',
+          textAlign: 'center',
+        })}
+      >
+        Senior Frontend Developer
+      </p>
+    </div>
 
     <div
       class={hstack({

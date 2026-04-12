@@ -1,0 +1,40 @@
+<script lang="ts">
+  import { css } from 'styled-system/css';
+  import { vstack } from 'styled-system/patterns';
+  import ExperienceTimelineContent from './experience-timeline-content.svelte';
+  import ExperienceTimelineDate from './experience-timeline-date.svelte';
+  import ExperienceTimelineMarker from './experience-timeline-marker.svelte';
+  import ExperienceTimelineStack from './experience-timeline-stack.svelte';
+  import ExperienceTimelineTitle from './experience-timeline-title.svelte';
+  import type { ExperienceEntry } from './experience-timeline.types';
+
+  const { entry }: { entry: ExperienceEntry } = $props();
+</script>
+
+<article
+  class={css({
+    position: 'relative',
+    paddingInlineStart: '$6',
+  })}
+>
+  <ExperienceTimelineMarker />
+
+  <div
+    class={vstack({
+      alignItems: 'flex-start',
+      gap: '$2.5',
+      width: '$full',
+      transformOrigin: 'bottom center',
+      animation: 'item-reveal linear both',
+      animationTimeline: 'view(block 0% 10%)',
+      animationRange: 'entry 0% entry 200px',
+    })}
+  >
+    <ExperienceTimelineDate date_range={entry.date_range} />
+    <ExperienceTimelineTitle title={entry.job_title} company={entry.company} />
+    <ExperienceTimelineContent highlights={entry.highlights} />
+    {#if entry.stack.length}
+      <ExperienceTimelineStack stack={entry.stack} />
+    {/if}
+  </div>
+</article>

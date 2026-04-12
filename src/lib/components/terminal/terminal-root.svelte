@@ -6,7 +6,7 @@
 
 <div
   class={vstack({
-    overflow: 'hidden',
+    overflow: 'clip',
     bgColor: '$terminal.bg',
     borderColor: '$border',
     borderWidth: '1px',
