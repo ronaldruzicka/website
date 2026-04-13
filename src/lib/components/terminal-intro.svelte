@@ -1,42 +1,44 @@
 <script lang="ts">
-  import { Terminal } from './terminal/index';
-  import { css } from 'styled-system/css';
+	import { Terminal } from './terminal/index';
+	import { css } from 'styled-system/css';
 </script>
 
 <Terminal.Root>
-  <Terminal.Header />
-  <Terminal.Content>
-    <Terminal.Command>whoami</Terminal.Command>
-    <Terminal.Output>Ronald Ružička. Software Engineer based in the cloud.</Terminal.Output>
+	<Terminal.Header />
+	<Terminal.Content>
+		<Terminal.Command>whoami</Terminal.Command>
+		<Terminal.Output
+			>Ronald Ružička. Software Engineer based in the cloud.</Terminal.Output
+		>
 
-    <Terminal.Command>cat intro.txt</Terminal.Command>
-    <Terminal.Output
-      >Hello World. I build high-performance web applications with a focus on minimalist design and
-      scalable architecture.</Terminal.Output
-    >
+		<Terminal.Command>cat intro.txt</Terminal.Command>
+		<Terminal.Output
+			>Hello World. I build high-performance web applications with a focus on
+			minimalist design and scalable architecture.</Terminal.Output
+		>
 
-    <Terminal.Command>status</Terminal.Command>
-    <Terminal.Output>
-      <span
-        class={css({
-          position: 'relative',
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '$2',
-          color: '$primary',
-          _before: {
-            content: '""',
-            width: '0.8em',
-            height: '0.8em',
-            borderRadius: '$full',
-            bgColor: '$primary',
-            animation: 'pulse 2s infinite',
-            _motionReduce: {
-              animationName: 'none',
-            },
-          },
-        })}>Available for new projects</span
-      >
-    </Terminal.Output>
-  </Terminal.Content>
+		<Terminal.Command>status</Terminal.Command>
+		<Terminal.Output>
+			<span
+				class={css({
+					position: 'relative',
+					display: 'inline-flex',
+					alignItems: 'center',
+					gap: '$2',
+					color: '$primary',
+					_before: {
+						content: '""',
+						width: '0.8em',
+						height: '0.8em',
+						borderRadius: '$full',
+						bgColor: '$primary',
+						animation: 'pulse 2s infinite',
+						_motionReduce: {
+							animationName: 'none',
+						},
+					},
+				})}>Available for new projects</span
+			>
+		</Terminal.Output>
+	</Terminal.Content>
 </Terminal.Root>
