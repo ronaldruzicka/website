@@ -22,13 +22,13 @@ A personal developer portfolio built with **SvelteKit** and **Panda CSS**.
 
 ## Commands
 
-| Command         | Action                                      |
-| :-------------- | :------------------------------------------ |
-| `bun install`   | Install dependencies                        |
-| `bun run dev`   | Start dev server (default: localhost:5173)   |
-| `bun run build` | Build for production                        |
-| `bun run preview` | Preview the production build locally     |
-| `bun run check` | Run svelte-check                            |
+| Command           | Action                                     |
+| :---------------- | :----------------------------------------- |
+| `bun install`     | Install dependencies                       |
+| `bun run dev`     | Start dev server (default: localhost:5173) |
+| `bun run build`   | Build for production                       |
+| `bun run preview` | Preview the production build locally       |
+| `bun run check`   | Run svelte-check                           |
 
 ## Deployment
 

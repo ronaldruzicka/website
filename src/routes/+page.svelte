@@ -1,7 +1,7 @@
 <script lang="ts">
-  import ExperienceTimeline from '@components/experience-timeline/experience-timeline.svelte';
-  import Intro from '@components/intro.svelte';
-  import TerminalIntro from '@components/terminal-intro.svelte';
+	import ExperienceTimeline from '@components/experience-timeline/experience-timeline.svelte';
+	import Intro from '@components/intro.svelte';
+	import TerminalIntro from '@components/terminal-intro.svelte';
 </script>
 
 <Intro />

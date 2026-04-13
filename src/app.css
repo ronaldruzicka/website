@@ -1,35 +1,37 @@
 @layer reset, base, tokens, recipes, utilities;
 
 @property --dot-bg {
-  syntax: '<color>';
-  initial-value: transparent;
-  inherits: true; /* dot picks it up from parent */
+	syntax: '<color>';
+	initial-value: transparent;
+	inherits: true; /* dot picks it up from parent */
 }
 
 @keyframes fill {
-  entry 0% {
-    --dot-bg: var(--colors-background);
-  }
-  entry 100% {
-    --dot-bg: var(--colors-primary);
-    box-shadow: 0 0 0 8px color-mix(in oklch, var(--colors-primary), var(--colors-transparent) 80%);
-  }
-  exit 0% {
-    --dot-bg: var(--colors-primary);
-    box-shadow: 0 0 0 8px color-mix(in oklch, var(--colors-primary), var(--colors-transparent) 80%);
-  }
-  exit 100% {
-    --dot-bg: var(--colors-background);
-  }
+	entry 0% {
+		--dot-bg: var(--colors-background);
+	}
+	entry 100% {
+		--dot-bg: var(--colors-primary);
+		box-shadow: 0 0 0 8px
+			color-mix(in oklch, var(--colors-primary), var(--colors-transparent) 80%);
+	}
+	exit 0% {
+		--dot-bg: var(--colors-primary);
+		box-shadow: 0 0 0 8px
+			color-mix(in oklch, var(--colors-primary), var(--colors-transparent) 80%);
+	}
+	exit 100% {
+		--dot-bg: var(--colors-background);
+	}
 }
 
 @keyframes item-reveal {
-  0% {
-    opacity: 0;
-    transform: perspective(1000px) rotateX(-10deg) scale(0.9) translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: perspective(1000px) rotateX(0deg) scale(1) translateY(0px);
-  }
+	0% {
+		opacity: 0;
+		transform: perspective(1000px) rotateX(-10deg) scale(0.9) translateY(20px);
+	}
+	100% {
+		opacity: 1;
+		transform: perspective(1000px) rotateX(0deg) scale(1) translateY(0px);
+	}
 }

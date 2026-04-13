@@ -6,10 +6,10 @@ import TerminalOutput from './terminal-output.svelte';
 import TerminalRoot from './terminal-root.svelte';
 
 export const Terminal = {
-  Command: TerminalCommand,
-  Content: TerminalContent,
-  Cursor: TerminalCursor,
-  Header: TerminalHeader,
-  Output: TerminalOutput,
-  Root: TerminalRoot,
+	Command: TerminalCommand,
+	Content: TerminalContent,
+	Cursor: TerminalCursor,
+	Header: TerminalHeader,
+	Output: TerminalOutput,
+	Root: TerminalRoot,
 };

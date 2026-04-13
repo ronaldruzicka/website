@@ -1,0 +1,8 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "never",
+		"source.fixAll.oxc": "always",
+		"source.organizeImports.biome": "never"
+	},
+	"oxc.typeAware": true
+}

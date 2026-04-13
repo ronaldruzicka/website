@@ -115,5 +115,4 @@ Order of context changes meaning (e.g. `should_update_component` vs `should_comp
 ## General
 
 - Keep code **consistent and readable** for other developers.
-- Rely on **ESLint and Prettier** (e.g. from [basic-config](https://github.com/ronaldruzicka/basic-config)) and respect their rules.
 - When in doubt, prefer **readability and predictability** over brevity.

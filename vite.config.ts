@@ -1,11 +1,15 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import { enhancedImages } from '@sveltejs/enhanced-img';
 
 export default defineConfig({
-  plugins: [sveltekit()],
-  server: {
-    fs: {
-      allow: ['styled-system'],
-    },
-  },
+	plugins: [
+		enhancedImages(), // must come before the SvelteKit plugin
+		sveltekit(),
+	],
+	server: {
+		fs: {
+			allow: ['styled-system'],
+		},
+	},
 });
