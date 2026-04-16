@@ -1,0 +1,17 @@
+name: Hello World
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print greeting
+        run: echo "Hello from ${{ github.actor }} on ${{ github.ref }}"
+
+      - name: Multi-line script
+        run: |
+          echo "Job ID: ${{ github.run_id }}"
+          echo "Commit: ${{ github.sha }}"
