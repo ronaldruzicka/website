@@ -2,7 +2,7 @@
 	import { flex } from 'styled-system/patterns';
 	import Badge from '../badge/badge.svelte';
 
-	const { stack }: { stack: string[] } = $props();
+	const { skills }: { skills: string[] } = $props();
 </script>
 
 <ul
@@ -14,11 +14,11 @@
 		margin: 0,
 		padding: 0,
 	})}
-	aria-label="Tech stack"
+	aria-label="Skills used on the project"
 >
-	{#each stack as label, index (index)}
+	{#each skills as label, index (index)}
 		<li>
-			<Badge>{label}</Badge>
+			<Badge color="primary">{label}</Badge>
 		</li>
 	{/each}
 </ul>

@@ -4,7 +4,7 @@ export type ExperienceEntry = {
 	company: string;
 	location: string;
 	job_title: string;
-	highlights: string[];
-	stack: string[];
+	duties: string[];
+	skills: string[];
 	is_current?: boolean;
 };

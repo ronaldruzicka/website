@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { css } from 'styled-system/css';
 
-	const { highlights }: { highlights: string[] } = $props();
+	const { duties }: { duties: string[] } = $props();
 </script>
 
 <ul
@@ -16,7 +16,7 @@
 		gap: '$2',
 	})}
 >
-	{#each highlights as highlight, index (index)}
-		<li>{highlight}</li>
+	{#each duties as duty, index (index)}
+		<li>{duty}</li>
 	{/each}
 </ul>

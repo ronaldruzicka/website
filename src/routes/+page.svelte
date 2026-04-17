@@ -1,9 +1,10 @@
 <script lang="ts">
-	import ExperienceTimeline from '@components/experience-timeline/experience-timeline.svelte';
-	import Intro from '@components/intro.svelte';
-	import TerminalIntro from '@components/terminal-intro.svelte';
+	import Intro from '@features/intro.svelte';
+	import WorkExperience from '@features/work-experience.svelte';
+	import { vstack } from 'styled-system/patterns';
 </script>
 
-<Intro />
-<TerminalIntro />
-<ExperienceTimeline />
+<div class={vstack({ gap: '$20' })}>
+	<Intro />
+	<WorkExperience />
+</div>

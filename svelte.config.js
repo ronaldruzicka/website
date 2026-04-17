@@ -8,6 +8,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			'@components': './src/lib/components',
+			'@features': './src/lib/features',
 			'@icons': './src/lib/icons',
 			'@utils': './src/lib/utils',
 			'styled-system': './styled-system',
