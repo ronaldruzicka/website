@@ -1,5 +1,6 @@
-import { buttonRecipe } from './src/lib/components/button/button.recipe';
 import { defineConfig } from '@pandacss/dev';
+import { badgeRecipe } from './src/lib/components/badge/badge.recipe';
+import { buttonRecipe } from './src/lib/components/button/button.recipe';
 
 export default defineConfig({
 	// Whether to use css reset
@@ -20,6 +21,7 @@ export default defineConfig({
 	},
 	staticCss: {
 		recipes: {
+			badge: ['*'],
 			button: ['*'],
 		},
 	},
@@ -62,7 +64,7 @@ export default defineConfig({
 						value: { base: '{colors.zinc.100}', _dark: '{colors.zinc.900}' },
 					},
 					border: {
-						value: { base: '{colors.neutral.200}', _dark: '{colors.zinc.800}' },
+						value: { base: '{colors.neutral.200}', _dark: '{colors.zinc.700}' },
 					},
 					body: {
 						value: {
@@ -110,6 +112,7 @@ export default defineConfig({
 				},
 			},
 			recipes: {
+				badge: badgeRecipe,
 				button: buttonRecipe,
 			},
 		},

@@ -7,10 +7,12 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 		company: 'Actum Digital',
 		job_title: 'Senior Frontend Developer',
 		location: 'Prague',
-		highlights: [
-			'Integrated Auth0 SDK with several frontend applications in Next.js and legacy applications',
+		duties: [
+			'Integrated Auth0 SDK with several frontend applications in Next.js and legacy applications (Stencil, Sitecore)',
+			'Created custom authentication endpoints',
+			'Ensured backward compatibility of legacy applications cookies',
 		],
-		stack: ['React', 'Next.js', 'TypeScript', 'Storybook'],
+		skills: ['React', 'Next.js', 'TypeScript', 'Storybook', 'Auth0'],
 		is_current: true,
 	},
 	{
@@ -19,14 +21,14 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 		company: 'Innovatrics',
 		location: 'Bratislava',
 		job_title: 'Software Engineer',
-		highlights: [
+		duties: [
 			'Led the development of multiple React web applications focused on enrollment, modification (editor), and preview of biometric data and applicant information within a monorepo setup using Turborepo',
 			'Built a scalable design system on top of Radix UI to enhance project consistency',
 			'As a Frontend Guild Lead I coordinated frontend tech strategies, mentored developers across two product teams and contributed to hiring and interviews',
 			'Organized bi-weekly Frontend Coffee meetings to discuss new frontend topics',
 			'Wrote coding guidelines, maintained lint and formatting rules',
 		],
-		stack: [
+		skills: [
 			'React',
 			'TypeScript',
 			'Radix UI',
@@ -45,12 +47,12 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 		company: 'ISDD plus',
 		location: 'Bratislava',
 		job_title: 'Senior Frontend Developer',
-		highlights: [
+		duties: [
 			'Built a React dashboard for Slovanet to manage IoT devices',
 			'Developed the redesigned My Orange web application',
 			'Coordinated junior frontend developers and ensured code quality through reviews',
 		],
-		stack: ['React', 'TypeScript', 'Material UI', 'Cypress', 'Sass'],
+		skills: ['React', 'TypeScript', 'Material UI', 'Cypress', 'Sass'],
 	},
 	{
 		id: '94a6768a-fa3f-4362-a269-67365582615d',
@@ -58,10 +60,10 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 		company: 'Boardie startup',
 		location: 'Prague',
 		job_title: 'Freelance',
-		highlights: [
+		duties: [
 			'Developed a React application for internal company presentations, featuring employee profiles, events, news, and other information',
 		],
-		stack: [
+		skills: [
 			'React',
 			'TypeScript',
 			'Styled Components',
@@ -75,10 +77,10 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 		company: 'Creative Dock',
 		location: 'Prague',
 		job_title: 'React Developer',
-		highlights: [
+		duties: [
 			'Led frontend development of a React web app for online loans at Wustenrot, overseeing and assigning tasks to two other developers',
 		],
-		stack: ['React', 'Flow', 'Styled Components', 'Redux'],
+		skills: ['React', 'Flow', 'Styled Components', 'Redux'],
 	},
 	{
 		id: '320e1114-cd99-4f1f-b089-b6d7be2fec22',
@@ -86,12 +88,12 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 		company: 'Actum Digital',
 		location: 'Prague',
 		job_title: 'Frontend / Senior Frontend Developer',
-		highlights: [
+		duties: [
 			'Worked on international projects for companies like Metro Cash & Carry, Wustenrot, Walmark, and Zindulka (Yachting.com) in an Agile (Scrum) environment, while also contributing to internal projects like Actum UI Kit and Actum Dev Stack',
 			'Estimated new project scopes and led frontend development for Walmark’s Eshop solution klubzdravi.cz, creating HTML templates for Kentico CMS, managing junior developers, and conducting code reviews',
 			'Developed for walmark.cz, creating HTML templates for Kentico CMS and a React-based Health Index application, and optimized the Gulp dev stack using Webpack',
 		],
-		stack: [
+		skills: [
 			'Nunjucks',
 			'Sass',
 			'JavaScript',
@@ -109,10 +111,10 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
 			'Dry Con / Pricewise (Bratislava), G2G Online (Netherlands), Mega (Prague)',
 		location: '',
 		job_title: 'Freelance',
-		highlights: [
+		duties: [
 			'Built static websites and managed content for WordPress / On Target CMS',
 			'Customized WordPress themes based on provided designs',
 		],
-		stack: ['HTML', 'CSS', 'jQuery', 'WordPress', 'Nunjucks'],
+		skills: ['HTML', 'CSS', 'jQuery', 'WordPress', 'Nunjucks'],
 	},
 ];

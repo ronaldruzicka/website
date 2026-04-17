@@ -1,31 +1,47 @@
 <script lang="ts">
-	import { hstack } from 'styled-system/patterns';
 	import { css } from 'styled-system/css';
+	import { hstack } from 'styled-system/patterns';
+	import Container from './container.svelte';
 	import ThemeToggle from './theme-toggle.svelte';
 </script>
 
 <header
-	class={hstack({ py: '$4', justifyContent: 'space-between', width: '$full' })}
+	class={hstack({
+		width: '$full',
+		justifyContent: 'center',
+		py: '$4',
+		borderBlockEnd: '1px solid',
+		borderColor: '{$colors.border}',
+	})}
 >
-	<span
-		class={css({
-			fontFamily: '$mono',
-			fontWeight: '$bold',
-		})}
-	>
-		rr<span
-			class={css({
-				color: '$primary',
-				fontSize: '$xl',
-				animationName: 'pulse',
-				animationDuration: '3s',
-				animationIterationCount: 'infinite',
-				animationTimingFunction: 'ease-in-out',
-				_motionReduce: {
-					animationName: 'none',
-				},
-			})}>.</span
-		>dev</span
-	>
-	<ThemeToggle />
+	<Container>
+		<div
+			class={hstack({
+				width: '$full',
+				justifyContent: 'space-between',
+			})}
+		>
+			<span
+				class={css({
+					fontFamily: '$mono',
+					fontWeight: '$bold',
+				})}
+			>
+				rr<span
+					class={css({
+						color: '$primary',
+						fontSize: '$xl',
+						animationName: 'pulse',
+						animationDuration: '3s',
+						animationIterationCount: 'infinite',
+						animationTimingFunction: 'ease-in-out',
+						_motionReduce: {
+							animationName: 'none',
+						},
+					})}>.</span
+				>dev</span
+			>
+			<ThemeToggle />
+		</div>
+	</Container>
 </header>

@@ -1,19 +1,15 @@
 <script lang="ts">
-	import { vstack } from 'styled-system/patterns';
-	import Header from './header.svelte';
+	import { css } from 'styled-system/css';
 
 	let { children } = $props();
 </script>
 
 <div
-	class={vstack({
+	class={css({
 		width: '100%',
-		px: '$6',
 		maxWidth: '500px',
-		mx: 'auto',
-		gap: '$10',
+		px: '$6',
 	})}
 >
-	<Header />
 	{@render children?.()}
 </div>

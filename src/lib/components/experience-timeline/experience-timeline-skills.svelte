@@ -18,7 +18,7 @@
 >
 	{#each stack as label, index (index)}
 		<li>
-			<Badge>{label}</Badge>
+			<Badge color="primary">{label}</Badge>
 		</li>
 	{/each}
 </ul>

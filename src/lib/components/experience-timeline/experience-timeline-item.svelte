@@ -4,7 +4,7 @@
 	import ExperienceTimelineContent from './experience-timeline-content.svelte';
 	import ExperienceTimelineDate from './experience-timeline-date.svelte';
 	import ExperienceTimelineMarker from './experience-timeline-marker.svelte';
-	import ExperienceTimelineStack from './experience-timeline-stack.svelte';
+	import ExperienceTimelineStack from './experience-timeline-skills.svelte';
 	import ExperienceTimelineTitle from './experience-timeline-title.svelte';
 	import type { ExperienceEntry } from './experience-timeline.types';
 
@@ -32,9 +32,10 @@
 	>
 		<ExperienceTimelineDate date_range={entry.date_range} />
 		<ExperienceTimelineTitle title={entry.job_title} company={entry.company} />
-		<ExperienceTimelineContent highlights={entry.highlights} />
-		{#if entry.stack.length}
-			<ExperienceTimelineStack stack={entry.stack} />
+		<ExperienceTimelineContent duties={entry.duties} />
+
+		{#if entry.skills.length}
+			<ExperienceTimelineStack stack={entry.skills} />
 		{/if}
 	</div>
 </article>

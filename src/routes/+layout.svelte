@@ -1,7 +1,8 @@
 <script lang="ts">
-	import '../app.css';
 	import Container from '@components/container.svelte';
+	import Header from '@components/header.svelte';
 	import { vstack } from 'styled-system/patterns';
+	import '../app.css';
 
 	let { children } = $props();
 </script>
@@ -21,7 +22,15 @@
 	/>
 </svelte:head>
 
-<div class={vstack({ alignItems: 'center', height: '$full', pb: '$10' })}>
+<div
+	class={vstack({
+		alignItems: 'center',
+		height: '$full',
+		pb: '$10',
+		gap: '$20',
+	})}
+>
+	<Header />
 	<Container>
 		{@render children?.()}
 	</Container>
