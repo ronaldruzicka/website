@@ -1,6 +1,7 @@
 import { defineConfig } from '@pandacss/dev';
 import { badgeRecipe } from './src/lib/components/badge/badge.recipe';
 import { buttonRecipe } from './src/lib/components/button/button.recipe';
+import { iconButtonRecipe } from './src/lib/components/icon-button/icon-button.recipe';
 
 export default defineConfig({
 	// Whether to use css reset
@@ -23,6 +24,7 @@ export default defineConfig({
 		recipes: {
 			badge: ['*'],
 			button: ['*'],
+			iconButton: ['*'],
 		},
 	},
 
@@ -114,6 +116,7 @@ export default defineConfig({
 			recipes: {
 				badge: badgeRecipe,
 				button: buttonRecipe,
+				iconButton: iconButtonRecipe,
 			},
 		},
 	},
