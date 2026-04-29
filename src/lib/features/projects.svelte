@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Heading from '@components/heading.svelte';
 	import ProjectCard from '@components/project-card/project-card.svelte';
 	import { PROJECTS } from '@components/project-card/projects-data';

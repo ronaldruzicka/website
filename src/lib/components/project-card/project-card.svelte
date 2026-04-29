@@ -6,15 +6,7 @@
 	import { HugeiconsIcon } from '@hugeicons/svelte';
 	import { css } from 'styled-system/css';
 	import { hstack, vstack } from 'styled-system/patterns';
-
-	type Project = {
-		name: string;
-		image: string;
-		skills: string[];
-		description: string;
-		url: string;
-		github_url: string;
-	};
+	import type { Project } from './projects-data';
 
 	const { project }: { project: Project } = $props();
 </script>
@@ -45,7 +37,7 @@
 			alignItems: 'flex-start',
 		})}
 	>
-		<div class={hstack()}>
+		<div class={hstack({ flexWrap: 'wrap', gap: '$1.5' })}>
 			{#each project.skills as skill, i (`${skill}-${i}`)}
 				<Badge color="primary">{skill}</Badge>
 			{/each}
