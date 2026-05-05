@@ -22,11 +22,7 @@ export const buttonRecipe = defineRecipe({
 		transitionProperty: 'background-color, border-color',
 		transitionDuration: '$normal',
 		transitionTimingFunction: 'ease-in-out',
-
-		_focusVisible: {
-			outline: '2px solid {$colors.primary}',
-			outlineOffset: '2px',
-		},
+		focusVisibleRing: 'outside',
 
 		_motionReduce: {
 			transition: 'none',

@@ -38,6 +38,7 @@
 	}: Props = $props();
 
 	const class_list = $derived(cx(button({ variant }), className));
+
 	const safeRel = $derived(
 		href && target === '_blank' && !rel ? 'noopener noreferrer' : rel,
 	);

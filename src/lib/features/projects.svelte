@@ -2,11 +2,26 @@
 	import Heading from '@components/heading.svelte';
 	import ProjectCard from '@components/project-card/project-card.svelte';
 	import { PROJECTS } from '@components/project-card/projects-data';
-	import { grid, vstack } from 'styled-system/patterns';
+	import { Idea01Icon } from '@hugeicons/core-free-icons';
+	import { HugeiconsIcon } from '@hugeicons/svelte';
+	import { grid, hstack, vstack } from 'styled-system/patterns';
 </script>
 
 <section class={vstack({ width: '$full', gap: '$8' })}>
-	<header>
+	<header
+		class={hstack({
+			gap: '$2',
+			alignItems: 'center',
+			width: '$full',
+		})}
+	>
+		<HugeiconsIcon
+			aria-hidden="true"
+			color="currentColor"
+			icon={Idea01Icon}
+			size={24}
+			strokeWidth={1.5}
+		/>
 		<Heading tag="h2">Projects</Heading>
 	</header>
 

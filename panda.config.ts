@@ -80,7 +80,6 @@ export default defineConfig({
 							_dark: '{colors.neutral.400}',
 						},
 					},
-
 					terminal: {
 						header: {
 							value: {
@@ -123,6 +122,7 @@ export default defineConfig({
 
 	globalCss: {
 		html: {
+			'--global-color-focus-ring': '{$colors.primary}',
 			scrollbarGutter: 'stable',
 		},
 		'html, body': {
@@ -140,6 +140,14 @@ export default defineConfig({
 		},
 		'::selection': {
 			bgColor: '{$colors.primary}/30',
+		},
+		svg: {
+			maxInlineSize: '100%',
+			maxBlockSize: '100%',
+
+			'&:not([fill])': {
+				fill: 'currentColor',
+			},
 		},
 	},
 

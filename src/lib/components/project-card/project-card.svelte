@@ -46,14 +46,15 @@
 		<p class={css({ color: '$muted' })}>{project.description}</p>
 	</div>
 	<footer class={hstack({ gap: '$4', alignItems: 'center', padding: '$8' })}>
-		<IconButton href={project.url} target="_blank" aria-label="View project"
-			><HugeiconsIcon icon={Link05Icon} size={20} /></IconButton
+		<IconButton href={project.url} target="_blank" aria-label="View project">
+			<HugeiconsIcon icon={Link05Icon} size={20} /></IconButton
 		>
 		<IconButton
 			href={project.github_url}
 			target="_blank"
 			aria-label="View GitHub repository"
-			><HugeiconsIcon icon={GithubIcon} size={20} /></IconButton
+		>
+			<HugeiconsIcon icon={GithubIcon} size={20} /></IconButton
 		>
 	</footer>
 </div>

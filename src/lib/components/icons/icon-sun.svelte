@@ -3,7 +3,8 @@
 </script>
 
 <svg
-	xmlns="http://www.w3.org/2000/svg"
+	role="img"
+	aria-label="Light mode icon"
 	width="24"
 	height="24"
 	viewBox="0 0 24 24"
