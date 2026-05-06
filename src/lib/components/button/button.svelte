@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { cx } from 'styled-system/css';
-	import { button } from 'styled-system/recipes';
+	import { cx } from '@styled-system/css';
+	import { button } from '@styled-system/recipes';
 
 	type BaseProps = {
 		class?: string;

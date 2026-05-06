@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { vstack } from 'styled-system/patterns';
+	import { css } from '@styled-system/css';
+	import { vstack } from '@styled-system/patterns';
 	import Heading from '../heading.svelte';
-	import { css } from 'styled-system/css';
 
 	const {
 		title,

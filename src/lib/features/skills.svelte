@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { pack_circles } from '$lib/utils/pack-circles';
+	import type { SkillProps } from '@components/skill-card/skill.svelte';
+
+	import { BinaryCodeIcon } from '@hugeicons/core-free-icons';
+	import { HugeiconsIcon } from '@hugeicons/svelte';
+
 	import Heading from '@components/heading.svelte';
 	import IconAstro from '@components/icons/icon-astro.svelte';
 	import IconBiome from '@components/icons/icon-biome.svelte';
@@ -27,26 +31,29 @@
 	import IconTypescript from '@components/icons/icon-typescript.svelte';
 	import IconVite from '@components/icons/icon-vite.svelte';
 	import IconVitest from '@components/icons/icon-vitest.svelte';
-	import type { Skill as SkillType } from '@components/skill-card/skill.svelte';
 	import Skill from '@components/skill-card/skill.svelte';
 	import SkillGroupFilter from '@components/skill-group-filter/skill-group-filter.svelte';
-	import { BinaryCodeIcon } from '@hugeicons/core-free-icons';
-	import { HugeiconsIcon } from '@hugeicons/svelte';
-	import { css } from 'styled-system/css';
-	import { hstack, vstack } from 'styled-system/patterns';
+	import {
+		get_max_pack_scale_within_width,
+		get_packed_cloud_dimensions,
+		pack_circles,
+	} from '@utils/pack-circles';
+	import { css } from '@styled-system/css';
+	import { hstack, vstack } from '@styled-system/patterns';
 
 	const MIN_RADIUS = 18;
 	const RADIUS_SCALE = 7;
 	const GAP = 6;
+	const VIEWPORT_MARGIN_X = 48;
 
-	const skills: SkillType[] = [
+	const skills: SkillProps[] = [
 		{ name: 'Astro', icon: IconAstro, weight: 1, group: ['frontend'] },
 		{ name: 'Biome', icon: IconBiome, weight: 2, group: ['tooling'] },
 		{ name: 'Bun', icon: IconBun, weight: 1, group: ['backend', 'tooling'] },
 		{ name: 'Chromatic', icon: IconChromatic, weight: 2, group: ['testing'] },
 		{ name: 'CSS', icon: IconCss, weight: 4, group: ['frontend'] },
 		{ name: 'Deno', icon: IconDeno, weight: 1, group: ['backend'] },
-		{ name: 'Eslint', icon: IconEslint, weight: 2, group: ['tooling'] },
+		{ name: 'ESlint', icon: IconEslint, weight: 2, group: ['tooling'] },
 		{ name: 'Figma', icon: IconFigma, weight: 3, group: ['design'] },
 		{ name: 'Git', icon: IconGit, weight: 3, group: ['tooling'] },
 		{ name: 'GraphQL', icon: IconGraphql, weight: 2, group: ['frontend'] },
@@ -79,7 +86,7 @@
 		},
 		{ name: 'Turborepo', icon: IconTurborepo, weight: 2, group: ['tooling'] },
 		{
-			name: 'Typescript',
+			name: 'TypeScript',
 			icon: IconTypescript,
 			weight: 5,
 			group: ['frontend', 'backend'],
@@ -88,34 +95,53 @@
 		{ name: 'Vitest', icon: IconVitest, weight: 3, group: ['testing'] },
 	];
 
-	const radii = skills.map((skill) => MIN_RADIUS + skill.weight * RADIUS_SCALE);
-	const packed = pack_circles(radii, GAP);
+	const base_radii = skills.map(
+		(skill) => MIN_RADIUS + skill.weight * RADIUS_SCALE,
+	);
 
-	const min_x = Math.min(...packed.map((circle) => circle.x - circle.radius));
-	const max_x = Math.max(...packed.map((circle) => circle.x + circle.radius));
-	const min_y = Math.min(...packed.map((circle) => circle.y - circle.radius));
-	const max_y = Math.max(...packed.map((circle) => circle.y + circle.radius));
+	let viewport_inner_width = $state(1200);
 
-	const cloud_width = max_x - min_x;
-	const cloud_height = max_y - min_y;
+	const max_cloud_width = $derived(
+		Math.max(160, (viewport_inner_width ?? 1200) - VIEWPORT_MARGIN_X * 2),
+	);
 
-	const positioned = packed.map((circle) => ({
-		skill: skills[circle.index],
-		x: circle.x - circle.radius - min_x,
-		y: circle.y - circle.radius - min_y,
-		size: circle.radius * 2,
-	}));
+	const layout_scale = $derived(
+		get_max_pack_scale_within_width(base_radii, GAP, max_cloud_width),
+	);
+
+	const scaled_gap = $derived(GAP * layout_scale);
+	const scaled_radii = $derived(
+		base_radii.map((radius) => radius * layout_scale),
+	);
+
+	const packed = $derived(pack_circles(scaled_radii, scaled_gap));
+
+	const cloud_bounds = $derived(get_packed_cloud_dimensions(packed));
+
+	const cloud_width = $derived(cloud_bounds.width);
+	const cloud_height = $derived(cloud_bounds.height);
+
+	const positioned = $derived(
+		packed.map((circle) => ({
+			skill: skills[circle.index],
+			x: circle.x - circle.radius - cloud_bounds.min_x,
+			y: circle.y - circle.radius - cloud_bounds.min_y,
+			size: circle.radius * 2,
+		})),
+	);
 
 	// Focus order follows weight (desc), then name; layout stays absolute-positioned.
-	const positioned_by_tab_order = [...positioned].sort((item_a, item_b) => {
-		const weight_diff = item_b.skill.weight - item_a.skill.weight;
+	const positioned_by_tab_order = $derived(
+		[...positioned].sort((item_a, item_b) => {
+			const weight_diff = item_b.skill.weight - item_a.skill.weight;
 
-		if (weight_diff !== 0) {
-			return weight_diff;
-		}
+			if (weight_diff !== 0) {
+				return weight_diff;
+			}
 
-		return item_a.skill.name.localeCompare(item_b.skill.name);
-	});
+			return item_a.skill.name.localeCompare(item_b.skill.name);
+		}),
+	);
 
 	const unique_groups = [...new Set(skills.flatMap((skill) => skill.group))];
 
@@ -125,6 +151,8 @@
 		return active_group !== null && groups.includes(active_group);
 	}
 </script>
+
+<svelte:window bind:innerWidth={viewport_inner_width} />
 
 <section class={vstack({ width: '$full', gap: '$8' })}>
 	<header

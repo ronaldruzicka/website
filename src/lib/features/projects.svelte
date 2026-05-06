@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { Idea01Icon } from '@hugeicons/core-free-icons';
+	import { HugeiconsIcon } from '@hugeicons/svelte';
+
 	import Heading from '@components/heading.svelte';
 	import ProjectCard from '@components/project-card/project-card.svelte';
 	import { PROJECTS } from '@components/project-card/projects-data';
-	import { Idea01Icon } from '@hugeicons/core-free-icons';
-	import { HugeiconsIcon } from '@hugeicons/svelte';
-	import { grid, hstack, vstack } from 'styled-system/patterns';
+	import { grid, hstack, vstack } from '@styled-system/patterns';
 </script>
 
 <section class={vstack({ width: '$full', gap: '$8' })}>

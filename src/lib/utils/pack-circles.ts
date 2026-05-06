@@ -1,8 +1,17 @@
-type PackedCircle = {
+export type PackedCircle = {
 	x: number;
 	y: number;
 	radius: number;
 	index: number;
+};
+
+export type PackedCloudDimensions = {
+	min_x: number;
+	max_x: number;
+	min_y: number;
+	max_y: number;
+	width: number;
+	height: number;
 };
 
 function get_tangent_positions(
@@ -32,7 +41,11 @@ function get_tangent_positions(
 			center_distance * center_distance) /
 		(2 * center_distance);
 	const height_sq = reach_from_first * reach_from_first - along * along;
-	if (height_sq < 0) return [];
+
+	if (height_sq < 0) {
+		return [];
+	}
+
 	const height = Math.sqrt(height_sq);
 
 	const mid_x = first_circle.x + (along * delta_x) / center_distance;
@@ -148,4 +161,79 @@ export function pack_circles(radii: number[], gap = 6): PackedCircle[] {
 	}
 
 	return packed;
+}
+
+function get_cloud_width_for_scale(
+	base_radii: number[],
+	base_gap: number,
+	scale: number,
+): number {
+	const scaled_radii = base_radii.map((radius) => radius * scale);
+	const scaled_gap = base_gap * scale;
+
+	const packed = pack_circles(scaled_radii, scaled_gap);
+
+	return get_packed_cloud_dimensions(packed).width;
+}
+
+/** Bounding box of a packed layout (axis-aligned). */
+export function get_packed_cloud_dimensions(
+	packed: PackedCircle[],
+): PackedCloudDimensions {
+	const min_x = Math.min(...packed.map((circle) => circle.x - circle.radius));
+	const max_x = Math.max(...packed.map((circle) => circle.x + circle.radius));
+	const min_y = Math.min(...packed.map((circle) => circle.y - circle.radius));
+	const max_y = Math.max(...packed.map((circle) => circle.y + circle.radius));
+
+	const width = max_x - min_x;
+	const height = max_y - min_y;
+
+	return { min_x, max_x, min_y, max_y, width, height };
+}
+
+const MIN_LAYOUT_SCALE = 0.12;
+const SCALE_SEARCH_ITERATIONS = 30;
+
+/**
+ * Largest linear scale (≤ 1) such that the packed cloud width fits `max_content_width`.
+ * Radii and gap are multiplied by the scale before packing so spacing stays proportional.
+ */
+export function get_max_pack_scale_within_width(
+	base_radii: number[],
+	base_gap: number,
+	max_content_width: number,
+): number {
+	if (
+		!Number.isFinite(max_content_width) ||
+		max_content_width <= 0 ||
+		base_radii.length === 0
+	) {
+		return 1;
+	}
+
+	const natural_width = get_cloud_width_for_scale(base_radii, base_gap, 1);
+
+	if (natural_width <= max_content_width) {
+		return 1;
+	}
+
+	let scale_low = MIN_LAYOUT_SCALE;
+	let scale_high = 1;
+
+	for (let iteration = 0; iteration < SCALE_SEARCH_ITERATIONS; iteration++) {
+		const scale_mid = (scale_low + scale_high) / 2;
+		const width_at_mid = get_cloud_width_for_scale(
+			base_radii,
+			base_gap,
+			scale_mid,
+		);
+
+		if (width_at_mid <= max_content_width) {
+			scale_low = scale_mid;
+		} else {
+			scale_high = scale_mid;
+		}
+	}
+
+	return scale_low;
 }

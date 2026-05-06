@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { css } from '@styled-system/css';
 	import { Terminal } from './terminal/index';
-	import { css } from 'styled-system/css';
 </script>
 
 <Terminal.Root>

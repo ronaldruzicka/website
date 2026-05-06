@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { vstack } from 'styled-system/patterns';
+	import { vstack } from '@styled-system/patterns';
 
 	let { children } = $props();
 </script>

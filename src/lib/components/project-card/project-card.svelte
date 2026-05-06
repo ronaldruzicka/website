@@ -1,12 +1,14 @@
 <script lang="ts">
+	import type { Project } from './projects-data';
+
+	import { GithubIcon, Link05Icon } from '@hugeicons/core-free-icons';
+	import { HugeiconsIcon } from '@hugeicons/svelte';
+
 	import Badge from '@components/badge/badge.svelte';
 	import Heading from '@components/heading.svelte';
 	import IconButton from '@components/icon-button/icon-button.svelte';
-	import { GithubIcon, Link05Icon } from '@hugeicons/core-free-icons';
-	import { HugeiconsIcon } from '@hugeicons/svelte';
-	import { css } from 'styled-system/css';
-	import { hstack, vstack } from 'styled-system/patterns';
-	import type { Project } from './projects-data';
+	import { css } from '@styled-system/css';
+	import { hstack, vstack } from '@styled-system/patterns';
 
 	const { project }: { project: Project } = $props();
 </script>

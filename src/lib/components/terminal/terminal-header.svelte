@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { css } from 'styled-system/css';
-	import { hstack } from 'styled-system/patterns';
+	import { css } from '@styled-system/css';
+	import { hstack } from '@styled-system/patterns';
 </script>
 
 <div

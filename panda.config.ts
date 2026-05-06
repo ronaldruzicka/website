@@ -1,4 +1,5 @@
 import { defineConfig } from '@pandacss/dev';
+
 import { badgeRecipe } from './src/lib/components/badge/badge.recipe';
 import { buttonRecipe } from './src/lib/components/button/button.recipe';
 import { iconButtonRecipe } from './src/lib/components/icon-button/icon-button.recipe';

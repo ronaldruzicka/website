@@ -1,6 +1,7 @@
 <script lang="ts">
-	const path_id = globalThis.crypto.randomUUID();
-	const mask_id = globalThis.crypto.randomUUID();
+	const instance_id = $props.id();
+	const path_id = `${instance_id}-path`;
+	const mask_id = `${instance_id}-mask`;
 </script>
 
 <svg

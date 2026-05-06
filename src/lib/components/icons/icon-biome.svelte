@@ -1,6 +1,7 @@
 <script lang="ts">
-	const biomejs_background = globalThis.crypto.randomUUID();
-	const biomejs_emblem = globalThis.crypto.randomUUID();
+	const instance_id = $props.id();
+	const biomejs_background = `${instance_id}-background`;
+	const biomejs_emblem = `${instance_id}-emblem`;
 </script>
 
 <svg role="img" aria-label="Biome icon" viewBox="0 0 64 55.425" version="1.0"

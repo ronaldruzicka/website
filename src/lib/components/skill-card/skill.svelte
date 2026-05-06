@@ -1,14 +1,9 @@
 <script lang="ts" module>
 	import type { Component } from 'svelte';
 
-	export type SkillGroup =
-		| 'frontend'
-		| 'backend'
-		| 'tooling'
-		| 'testing'
-		| 'design';
+	type SkillGroup = 'frontend' | 'backend' | 'tooling' | 'testing' | 'design';
 
-	export type Skill = {
+	export type SkillProps = {
 		name: string;
 		icon: Component;
 		weight: number;
@@ -17,8 +12,8 @@
 </script>
 
 <script lang="ts">
-	import { css } from 'styled-system/css';
-	import { hstack } from 'styled-system/patterns';
+	import { css } from '@styled-system/css';
+	import { hstack } from '@styled-system/patterns';
 
 	type Props = {
 		name: string;

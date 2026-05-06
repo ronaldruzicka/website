@@ -1,7 +1,8 @@
+import type { Config } from '@sveltejs/kit';
+
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: [vitePreprocess()],
 	kit: {
@@ -10,8 +11,9 @@ const config = {
 			'@components': './src/lib/components',
 			'@features': './src/lib/features',
 			'@icons': './src/lib/icons',
+			'@state': './src/lib/state',
 			'@utils': './src/lib/utils',
-			'styled-system': './styled-system',
+			'@styled-system': './styled-system',
 		},
 		typescript: {
 			config: (config) => {
@@ -20,6 +22,6 @@ const config = {
 			},
 		},
 	},
-};
+} satisfies Config;
 
 export default config;

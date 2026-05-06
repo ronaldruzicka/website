@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { css, cx } from 'styled-system/css';
-	import { hstack } from 'styled-system/patterns';
+	import { css, cx } from '@styled-system/css';
+	import { hstack } from '@styled-system/patterns';
 
 	type Props = {
 		groups: string[];
@@ -92,7 +92,7 @@
 		fontSize: '$sm',
 		fontWeight: '$medium',
 		fontFamily: '$display',
-		cursor: 'default',
+		cursor: 'pointer',
 		border: '1px solid',
 		borderColor: '$border',
 		bgColor: '$foreground',
@@ -125,7 +125,7 @@
 
 <div
 	role="toolbar"
-	aria-label="Filter skills by group — hover or use arrow keys"
+	aria-label="Filter skills by group — tap a pill, hover or use arrow keys"
 	tabindex="-1"
 	class={hstack({
 		gap: '$2',
@@ -142,7 +142,7 @@
 			type="button"
 			class={cx(base_pill, selected === group ? active_pill : '')}
 			tabindex={index === focused_index ? 0 : -1}
-			aria-current={selected === group ? 'true' : undefined}
+			aria-pressed={selected === group}
 			onmouseenter={() => handle_pill_enter(group, index)}
 			onfocus={() => handle_pill_enter(group, index)}
 		>

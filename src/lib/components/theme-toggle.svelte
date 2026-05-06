@@ -1,30 +1,22 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { css } from 'styled-system/css';
-	import { hstack, visuallyHidden } from 'styled-system/patterns';
+	import type { ChangeEventHandler } from 'svelte/elements';
+
+	import { theme } from '$lib/state/theme.svelte';
+
+	import { css } from '@styled-system/css';
+	import { hstack, visuallyHidden } from '@styled-system/patterns';
 	import IconMoon from './icons/icon-moon.svelte';
 	import IconSun from './icons/icon-sun.svelte';
-	import type { ChangeEventHandler } from 'svelte/elements';
 
 	const transition_property = 'rotate, translate, opacity';
 	const transition_timing_function = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
 	const THEME_STORAGE_KEY = 'theme';
 
-	let is_dark = $state(
-		typeof document !== 'undefined' &&
-			document.documentElement.classList.contains('dark'),
-	);
-
-	onMount(() => {
-		// Sync in case SSR state differs from client
-		is_dark = document.documentElement.classList.contains('dark');
-	});
-
 	const handle_change: ChangeEventHandler<HTMLInputElement> = (event) => {
 		const checked = event.currentTarget.checked;
 
-		is_dark = checked;
 		document.documentElement.classList.toggle('dark', checked);
+
 		try {
 			localStorage.setItem(THEME_STORAGE_KEY, checked ? 'dark' : 'light');
 		} catch (error) {
@@ -89,7 +81,7 @@
 		type="checkbox"
 		name="theme-toggle"
 		aria-label="Toggle dark mode"
-		bind:checked={is_dark}
+		bind:checked={theme.is_dark}
 		onchange={handle_change}
 	/>
 

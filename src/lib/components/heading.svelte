@@ -1,7 +1,8 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
-	import { css, cx } from 'styled-system/css';
+
+	import { css, cx } from '@styled-system/css';
 
 	export type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4';
 

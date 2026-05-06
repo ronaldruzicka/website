@@ -1,7 +1,8 @@
 <script lang="ts">
-	const mask_id = globalThis.crypto.randomUUID();
-	const circle_gradient_id = globalThis.crypto.randomUUID();
-	const letter_gradient_id = globalThis.crypto.randomUUID();
+	const instance_id = $props.id();
+	const mask_id = `${instance_id}-mask`;
+	const circle_gradient_id = `${instance_id}-circle`;
+	const letter_gradient_id = `${instance_id}-letter`;
 </script>
 
 <svg role="img" aria-label="Next.js icon" viewBox="0 0 180 180"

@@ -1,6 +1,8 @@
 <script lang="ts">
-	import { badge, type BadgeVariantProps } from 'styled-system/recipes';
+	import type { BadgeVariantProps } from '@styled-system/recipes';
 	import type { Snippet } from 'svelte';
+
+	import { badge } from '@styled-system/recipes';
 
 	type Props = BadgeVariantProps & { children: Snippet };
 

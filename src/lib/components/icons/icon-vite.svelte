@@ -1,20 +1,21 @@
 <script lang="ts">
-	const mask_id = globalThis.crypto.randomUUID();
-	const filter_0_id = globalThis.crypto.randomUUID();
-	const filter_1_id = globalThis.crypto.randomUUID();
-	const filter_2_id = globalThis.crypto.randomUUID();
-	const filter_3_id = globalThis.crypto.randomUUID();
-	const filter_4_id = globalThis.crypto.randomUUID();
-	const filter_5_id = globalThis.crypto.randomUUID();
-	const filter_6_id = globalThis.crypto.randomUUID();
-	const filter_7_id = globalThis.crypto.randomUUID();
-	const filter_8_id = globalThis.crypto.randomUUID();
-	const filter_9_id = globalThis.crypto.randomUUID();
-	const filter_10_id = globalThis.crypto.randomUUID();
-	const filter_11_id = globalThis.crypto.randomUUID();
-	const filter_12_id = globalThis.crypto.randomUUID();
-	const filter_13_id = globalThis.crypto.randomUUID();
-	const filter_14_id = globalThis.crypto.randomUUID();
+	const instance_id = $props.id();
+	const mask_id = `${instance_id}-mask`;
+	const filter_0_id = `${instance_id}-f0`;
+	const filter_1_id = `${instance_id}-f1`;
+	const filter_2_id = `${instance_id}-f2`;
+	const filter_3_id = `${instance_id}-f3`;
+	const filter_4_id = `${instance_id}-f4`;
+	const filter_5_id = `${instance_id}-f5`;
+	const filter_6_id = `${instance_id}-f6`;
+	const filter_7_id = `${instance_id}-f7`;
+	const filter_8_id = `${instance_id}-f8`;
+	const filter_9_id = `${instance_id}-f9`;
+	const filter_10_id = `${instance_id}-f10`;
+	const filter_11_id = `${instance_id}-f11`;
+	const filter_12_id = `${instance_id}-f12`;
+	const filter_13_id = `${instance_id}-f13`;
+	const filter_14_id = `${instance_id}-f14`;
 </script>
 
 <svg role="img" aria-label="Vite icon" fill="none" viewBox="0 0 48 46"

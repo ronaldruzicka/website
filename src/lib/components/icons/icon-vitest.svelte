@@ -1,10 +1,11 @@
 <script lang="ts">
-	const mask = globalThis.crypto.randomUUID();
-	const filter_0_id = globalThis.crypto.randomUUID();
-	const filter_1_id = globalThis.crypto.randomUUID();
-	const filter_2_id = globalThis.crypto.randomUUID();
-	const filter_3_id = globalThis.crypto.randomUUID();
-	const filter_4_id = globalThis.crypto.randomUUID();
+	const instance_id = $props.id();
+	const mask = `${instance_id}-mask`;
+	const filter_0_id = `${instance_id}-f0`;
+	const filter_1_id = `${instance_id}-f1`;
+	const filter_2_id = `${instance_id}-f2`;
+	const filter_3_id = `${instance_id}-f3`;
+	const filter_4_id = `${instance_id}-f4`;
 </script>
 
 <svg role="img" aria-label="Vitest icon" fill="none" viewBox="0 0 45 43"

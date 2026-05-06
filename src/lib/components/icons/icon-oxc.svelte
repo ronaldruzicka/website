@@ -1,19 +1,20 @@
 <script lang="ts">
-	const oxc_mask_id = globalThis.crypto.randomUUID();
-	const oxc_filter_id_0 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_1 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_2 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_3 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_4 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_5 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_6 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_7 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_8 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_9 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_10 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_11 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_12 = globalThis.crypto.randomUUID();
-	const oxc_filter_id_13 = globalThis.crypto.randomUUID();
+	const instance_id = $props.id();
+	const oxc_mask_id = `${instance_id}-mask`;
+	const oxc_filter_id_0 = `${instance_id}-f0`;
+	const oxc_filter_id_1 = `${instance_id}-f1`;
+	const oxc_filter_id_2 = `${instance_id}-f2`;
+	const oxc_filter_id_3 = `${instance_id}-f3`;
+	const oxc_filter_id_4 = `${instance_id}-f4`;
+	const oxc_filter_id_5 = `${instance_id}-f5`;
+	const oxc_filter_id_6 = `${instance_id}-f6`;
+	const oxc_filter_id_7 = `${instance_id}-f7`;
+	const oxc_filter_id_8 = `${instance_id}-f8`;
+	const oxc_filter_id_9 = `${instance_id}-f9`;
+	const oxc_filter_id_10 = `${instance_id}-f10`;
+	const oxc_filter_id_11 = `${instance_id}-f11`;
+	const oxc_filter_id_12 = `${instance_id}-f12`;
+	const oxc_filter_id_13 = `${instance_id}-f13`;
 </script>
 
 <svg role="img" aria-label="Oxc icon" fill="none" viewBox="0 0 48 46"

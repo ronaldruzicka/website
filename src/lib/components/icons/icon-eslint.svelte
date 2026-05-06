@@ -1,5 +1,5 @@
 <script lang="ts">
-	const id = globalThis.crypto.randomUUID();
+	const id = $props.id();
 </script>
 
 <svg role="img" aria-label="ESLint icon" viewBox="0 0 30 30" fill="none">
