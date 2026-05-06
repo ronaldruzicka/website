@@ -10,6 +10,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
+      # Scripts use `node --experimental-strip-types` (Node 22+). The runner
+      # default `node` can be older, which makes that flag invalid.
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
       - name: Install bun
         uses: oven-sh/setup-bun@v2
 

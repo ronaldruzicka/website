@@ -38,7 +38,7 @@
 		"@hugeicons/svelte": "1.1.2"
 	},
 	"engines": {
-		"node": ">=22",
+		"node": ">=24",
 		"bun": ">=1.3"
 	}
 }
