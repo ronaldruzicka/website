@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Container from '@components/container.svelte';
 	import Header from '@components/header.svelte';
-	import { vstack } from 'styled-system/patterns';
+	import { vstack } from '@styled-system/patterns';
 	import '../app.css';
 
 	let { children } = $props();

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { flex } from 'styled-system/patterns';
+	import { flex } from '@styled-system/patterns';
 	import Badge from '../badge/badge.svelte';
 
 	const { skills }: { skills: string[] } = $props();

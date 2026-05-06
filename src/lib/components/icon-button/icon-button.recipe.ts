@@ -24,10 +24,7 @@ export const iconButtonRecipe = defineRecipe({
 			flexShrink: 0,
 		},
 
-		_focusVisible: {
-			outline: '2px solid {$colors.primary}',
-			// outlineOffset: '2px',
-		},
+		focusVisibleRing: 'outside',
 
 		_motionReduce: {
 			transition: 'none',

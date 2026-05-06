@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { vstack } from 'styled-system/patterns';
+	import { vstack } from '@styled-system/patterns';
 	import ExperienceTimelineItem from './experience-timeline-item.svelte';
 	import { EXPERIENCE_ENTRIES } from './experience-timeline.data';
 </script>

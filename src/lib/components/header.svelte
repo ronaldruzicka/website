@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { css } from 'styled-system/css';
-	import { hstack } from 'styled-system/patterns';
+	import { css } from '@styled-system/css';
+	import { hstack } from '@styled-system/patterns';
 	import Container from './container.svelte';
 	import ThemeToggle from './theme-toggle.svelte';
 </script>

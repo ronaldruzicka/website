@@ -1,12 +1,13 @@
 <script lang="ts">
-	import { css } from 'styled-system/css';
-	import { vstack } from 'styled-system/patterns';
+	import type { ExperienceEntry } from './experience-timeline.types';
+
+	import { css } from '@styled-system/css';
+	import { vstack } from '@styled-system/patterns';
 	import ExperienceTimelineContent from './experience-timeline-content.svelte';
 	import ExperienceTimelineDate from './experience-timeline-date.svelte';
 	import ExperienceTimelineMarker from './experience-timeline-marker.svelte';
 	import ExperienceTimelineSkills from './experience-timeline-skills.svelte';
 	import ExperienceTimelineTitle from './experience-timeline-title.svelte';
-	import type { ExperienceEntry } from './experience-timeline.types';
 
 	const { entry }: { entry: ExperienceEntry } = $props();
 </script>

@@ -1,13 +1,12 @@
 <script lang="ts">
+	import type { TerminalAnimationParams, TerminalPlayParams } from './terminal';
+
 	import { onMount } from 'svelte';
-	import { css, cx } from 'styled-system/css';
-	import { vstack } from 'styled-system/patterns';
-	import { delay } from '$lib/utils/delay';
-	import {
-		use_terminal_content,
-		type TerminalAnimationParams,
-		type TerminalPlayParams,
-	} from './terminal';
+
+	import { delay } from '@utils/delay';
+	import { cx } from '@styled-system/css';
+	import { vstack } from '@styled-system/patterns';
+	import { use_terminal_content } from './terminal';
 
 	let { children } = $props();
 	const terminal = use_terminal_content();

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { css } from 'styled-system/css';
-	import { hstack, vstack } from 'styled-system/patterns';
+	import { css } from '@styled-system/css';
+	import { hstack, vstack } from '@styled-system/patterns';
 	import profilePhoto from '../../images/profile-photo.webp';
 	import Button from './button/button.svelte';
 	import Heading from './heading.svelte';

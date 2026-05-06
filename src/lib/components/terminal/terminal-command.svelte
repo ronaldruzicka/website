@@ -1,14 +1,16 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
-	import { css, cx } from 'styled-system/css';
-	import { delay } from '$lib/utils/delay';
-	import { random_delay } from '$lib/utils/random-delay';
-	import {
-		use_terminal_line,
-		type TerminalAnimationParams,
-		type TerminalCursorParams,
-		type TerminalPlayParams,
+	import type {
+		TerminalAnimationParams,
+		TerminalCursorParams,
+		TerminalPlayParams,
 	} from './terminal';
+
+	import { onDestroy } from 'svelte';
+
+	import { delay } from '@utils/delay';
+	import { random_delay } from '@utils/random-delay';
+	import { css, cx } from '@styled-system/css';
+	import { use_terminal_line } from './terminal';
 	import TerminalCursor from './terminal-cursor.svelte';
 
 	let { children } = $props();

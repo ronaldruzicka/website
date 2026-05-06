@@ -11,10 +11,13 @@
 				const prefers_reduced_motion = globalThis.matchMedia(
 					'(prefers-reduced-motion: reduce)',
 				).matches;
+
 				const stored_theme = globalThis.localStorage.getItem('theme');
+
 				const system_prefers_dark = globalThis.matchMedia(
 					'(prefers-color-scheme: dark)',
 				).matches;
+
 				const should_use_dark = stored_theme
 					? stored_theme === 'dark'
 					: system_prefers_dark;

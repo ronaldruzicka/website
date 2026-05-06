@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { cx } from 'styled-system/css';
-	import { button } from 'styled-system/recipes';
+	import { cx } from '@styled-system/css';
+	import { button } from '@styled-system/recipes';
 
 	type BaseProps = {
 		class?: string;
@@ -38,6 +38,7 @@
 	}: Props = $props();
 
 	const class_list = $derived(cx(button({ variant }), className));
+
 	const safeRel = $derived(
 		href && target === '_blank' && !rel ? 'noopener noreferrer' : rel,
 	);

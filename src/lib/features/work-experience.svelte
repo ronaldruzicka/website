@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { hstack, vstack } from 'styled-system/patterns';
+	import { WorkHistoryIcon } from '@hugeicons/core-free-icons';
+	import { HugeiconsIcon } from '@hugeicons/svelte';
 
 	import ExperienceTimeline from '@components/experience-timeline/experience-timeline.svelte';
 	import Heading from '@components/heading.svelte';
-	import { WorkHistoryIcon } from '@hugeicons/core-free-icons';
-	import { HugeiconsIcon } from '@hugeicons/svelte';
+	import { hstack, vstack } from '@styled-system/patterns';
 </script>
 
 <section class={vstack({ width: '$full', gap: '$8' })}>

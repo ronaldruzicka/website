@@ -1,6 +1,25 @@
 {
-	"plugins": ["prettier-plugin-svelte"],
+	"plugins": [
+		"prettier-plugin-svelte",
+		"@trivago/prettier-plugin-sort-imports"
+	],
 	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }],
 	"singleQuote": true,
-	"useTabs": true
+	"useTabs": true,
+	"importOrder": [
+		"<THIRD_PARTY_TS_TYPES>",
+		"<TS_TYPES>",
+		"<SEPARATOR>",
+		"<BUILTIN_MODULES>",
+		"<THIRD_PARTY_MODULES>",
+		"<SEPARATOR>",
+		"^@components",
+		"^@features",
+		"^@icons",
+		"^@utils",
+		"^@styled-system",
+		"^[.]"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
 }

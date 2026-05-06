@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { cx } from 'styled-system/css';
-	import { iconButton } from 'styled-system/recipes';
 	import type { Snippet } from 'svelte';
+
+	import { cx } from '@styled-system/css';
+	import { iconButton } from '@styled-system/recipes';
 
 	type BaseProps = {
 		'aria-label': string;

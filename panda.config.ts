@@ -1,4 +1,5 @@
 import { defineConfig } from '@pandacss/dev';
+
 import { badgeRecipe } from './src/lib/components/badge/badge.recipe';
 import { buttonRecipe } from './src/lib/components/button/button.recipe';
 import { iconButtonRecipe } from './src/lib/components/icon-button/icon-button.recipe';
@@ -80,7 +81,6 @@ export default defineConfig({
 							_dark: '{colors.neutral.400}',
 						},
 					},
-
 					terminal: {
 						header: {
 							value: {
@@ -123,6 +123,7 @@ export default defineConfig({
 
 	globalCss: {
 		html: {
+			'--global-color-focus-ring': '{$colors.primary}',
 			scrollbarGutter: 'stable',
 		},
 		'html, body': {
@@ -140,6 +141,14 @@ export default defineConfig({
 		},
 		'::selection': {
 			bgColor: '{$colors.primary}/30',
+		},
+		svg: {
+			maxInlineSize: '100%',
+			maxBlockSize: '100%',
+
+			'&:not([fill])': {
+				fill: 'currentColor',
+			},
 		},
 	},
 
