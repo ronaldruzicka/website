@@ -27,7 +27,7 @@
 					fontWeight: '$bold',
 				})}
 			>
-				rr<span
+				ronaldruzicka<span
 					class={css({
 						color: '$primary',
 						fontSize: '$xl',
@@ -39,7 +39,7 @@
 							animationName: 'none',
 						},
 					})}>.</span
-				>dev</span
+				>me</span
 			>
 			<ThemeToggle />
 		</div>
