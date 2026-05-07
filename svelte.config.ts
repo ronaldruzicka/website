@@ -1,10 +1,12 @@
 import type { Config } from '@sveltejs/kit';
 
 import adapter from '@sveltejs/adapter-auto';
+import { enhancedImages } from '@sveltejs/enhanced-img';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
 const config = {
 	preprocess: [vitePreprocess()],
+	plugins: [enhancedImages()],
 	kit: {
 		adapter: adapter(),
 		alias: {
