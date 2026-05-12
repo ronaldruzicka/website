@@ -26,7 +26,7 @@
 			gap: '$2.5',
 			width: '$full',
 			transformOrigin: 'bottom center',
-			animation: 'item-reveal linear both',
+			animation: 'item-reveal ease-in-out both',
 			animationTimeline: 'view(block 0% 10%)',
 			animationRange: 'entry 0% entry 200px',
 		})}

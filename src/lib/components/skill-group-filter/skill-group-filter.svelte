@@ -132,6 +132,10 @@
 		flexWrap: 'wrap',
 		justifyContent: 'space-between',
 		width: '$full',
+		transformOrigin: 'center top',
+		animation: 'reveal ease-in-out both',
+		animationTimeline: 'view(block 0% 8%)',
+		animationRange: 'entry',
 	})}
 	onkeydown={handle_keydown}
 	onfocusout={handle_focus_out}

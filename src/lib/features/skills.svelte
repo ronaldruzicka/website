@@ -184,6 +184,11 @@
 			position: 'relative',
 			mx: 'auto',
 			maxWidth: '100%',
+			transformOrigin: 'center top',
+			animation: 'reveal ease-in-out both',
+			animationTimeline: 'view()',
+			animationRange: 'entry',
+
 			'&[data-filtering] > [data-skill]:not([data-active])': {
 				opacity: 0.25,
 			},
@@ -192,7 +197,7 @@
 		style:height="{cloud_height}px"
 		data-filtering={active_group !== null ? '' : undefined}
 	>
-		{#each positioned_by_tab_order as item}
+		{#each positioned_by_tab_order as item (item.skill.name)}
 			<div
 				class={css({ position: 'absolute', transition: 'opacity 0.2s ease' })}
 				style:left="{item.x}px"

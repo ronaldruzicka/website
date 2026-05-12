@@ -19,7 +19,7 @@
 		borderRadius: '$2xl',
 		overflow: 'clip',
 		transformOrigin: 'center center',
-		animation: 'project-reveal linear both',
+		animation: 'reveal ease-in-out both',
 		animationTimeline: 'view(block 0% 15%)',
 		animationRange: 'entry 0% entry 200px',
 	})}
